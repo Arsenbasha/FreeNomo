@@ -1,5 +1,6 @@
 package triocalavera.freenomo
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -7,6 +8,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import triocalavera.freenomo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view.rootView)
         var navigationController: NavController = findNavController(R.id.nav_host_fragment)
         setupBottomNav(navigationController)
+
+
     }
 
     private fun setupBottomNav(navigationController: NavController) {
