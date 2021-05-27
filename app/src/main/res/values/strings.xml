@@ -1,4 +1,6 @@
 <resources>
+
+    <!-- STRINGS NAVIGATION -->
     <string name="app_name">FreeNomo</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,4 +12,39 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- STRINGS LOGIN -->
+    <string name="textViewBienvenido">¡Bienvenido!</string>
+    <string name="textViewContinuar">Inicia sesión para continuar</string>
+    <string name="textInputCorreo">Correo Electronico</string>
+    <string name="textInputContraseña">Contraseña</string>
+    <string name="btnIniciarSesion">INICIAR SESIÓN</string>
+    <string name="btnNoCuenta">¿No tienes cuenta? Regístrate</string>
+
+    <!-- STRINGS REGISTRAR -->
+    <string name="textViewRegistrate">Regístrate</string>
+    <string name="textViewRegistrar">Regístrate y encuentra las mejores ofertas</string>
+    <string name="textInputNombreCompleto">Nombre completo</string>
+    <string name="textInputContraseñaRegistro">Contraseña</string>
+    <string name="textInputRepiteContraseña">Repetir contraseña</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="btnTienesCuenta">¿Ya tienes una cuenta? Inicia sesión</string>
+
+    <!-- STRINGS MODIFICAR USUARIO -->
+    <string name="cambiarNombre">Cambiar nombre</string>
+    <string name="cambiarCorreo">Cambiar correo</string>
+    <string name="cambiarContraseña">Cambiar contraseña</string>
+    <string name="eliminarCuenta">Eliminar cuenta</string>
+    <string name="textMofifica">Modifica tus datos</string>
+
+    <!-- STRING ALERTAS -->
+    <!-- contraseña -->
+    <string name="contraActual">Contraseña actual</string>
+    <string name="contraNueva">Contraseña nueva</string>
+    <string name="repeContraNueva">Repetir contraseña</string>
+    <!-- nombre -->
+    <string name="nombreNuevo">Nombre y apellidos</string>
+    <!-- correo -->
+    <string name="correoNuevo">Correo electrónico</string>
 </resources>
