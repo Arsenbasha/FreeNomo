@@ -10,16 +10,9 @@
         android:name="triocalavera.freenomo.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="triocalavera.freenomo.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/login"
+        android:name="triocalavera.freenomo.usuarioregistro.login"
+        android:label="login" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="triocalavera.freenomo.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>
