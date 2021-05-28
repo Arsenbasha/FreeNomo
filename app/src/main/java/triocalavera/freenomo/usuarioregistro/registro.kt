@@ -47,8 +47,8 @@ class registro : Fragment() {
                     || bindig.telefonoUsuario.editText!!.text.isEmpty() || bindig.contraUsuario.editText!!.text.isEmpty()
                     || bindig.repetirContraUsuario.editText!!.text.isEmpty())
         ) {
-            var contra: String = bindig.contraUsuario.editText!!.text.toString()
-            var repeContra: String = bindig.repetirContraUsuario.editText!!.text.toString()
+            val contra: String = bindig.contraUsuario.editText!!.text.toString()
+            val repeContra: String = bindig.repetirContraUsuario.editText!!.text.toString()
             Toast.makeText(this.context, "Los datos estan llenos ", Toast.LENGTH_SHORT).show()
             if (contra == repeContra) {
                 registroUsuario()
@@ -71,15 +71,23 @@ class registro : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d("INFO", "Se esta creando el usuario")
-                    val usersRef: DatabaseReference = database.child("users")
                     val map: MutableMap<String, Any> = HashMap()
                     map["nombreCompleto"] = bindig.nombreUsuario.editText!!.text.toString()
                     map["correo"] = bindig.correoUsuario.editText!!.text.toString()
                     map["telefono"] = bindig.telefonoUsuario.editText!!.text.toString()
-                    val id = auth.currentUser!!.uid
-                    usersRef.child(id).setValue(map).addOnSuccessListener {
-                        findNavController().navigate(R.id.nav_home)
-                    }
+                    val id = this.auth.currentUser!!.uid
+
+                    database.child("Users").child(id).setValue(map)
+                        .addOnSuccessListener {
+                            Log.d("INFO", "el usuario se ha creado correctamente ")
+                            Toast.makeText(
+                                context,
+                                "Usuario creado correctamente",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            findNavController().navigate(R.id.nav_home)
+                        }
+
                 }
             }
 

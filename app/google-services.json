@@ -1,21 +1,20 @@
 {
   "project_info": {
-    "project_number": "99903908198",
-    "firebase_url": "https://freenomo-62a93-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "freenomo-62a93",
-    "storage_bucket": "freenomo-62a93.appspot.com"
+    "project_number": "146416583239",
+    "project_id": "freenomo-4e1af",
+    "storage_bucket": "freenomo-4e1af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:99903908198:android:d0507c063fd702ed32c0a7",
+        "mobilesdk_app_id": "1:146416583239:android:48bcd750f9403974d12762",
         "android_client_info": {
           "package_name": "triocalavera.freenomo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "99903908198-vtg8it37618tvfng2grt5laoqn9ch8om.apps.googleusercontent.com",
+          "client_id": "146416583239-bne5viibvirgcegl6h8jr7cdou4996ss.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "triocalavera.freenomo",
@@ -23,20 +22,20 @@
           }
         },
         {
-          "client_id": "99903908198-1qqofo1me2r2r14r3mffj0abu5lsdmuh.apps.googleusercontent.com",
+          "client_id": "146416583239-tbp7cul5oq7v64anss31pga1oov6s21m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBthLQepXQeG7vsBph6gHtO0uhyoUuKp0o"
+          "current_key": "AIzaSyDqruxM2WO9SerXLH8HjZYqbPxM6vQGeao"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "99903908198-1qqofo1me2r2r14r3mffj0abu5lsdmuh.apps.googleusercontent.com",
+              "client_id": "146416583239-tbp7cul5oq7v64anss31pga1oov6s21m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
