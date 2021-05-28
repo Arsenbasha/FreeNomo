@@ -12,11 +12,11 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/login"
-        android:name="triocalavera.freenomo.usuarioregistro.login"
+        android:name="triocalavera.freenomo.usuarioregistro.Login"
         android:label="login" />
     <fragment
         android:id="@+id/registro"
-        android:name="triocalavera.freenomo.usuarioregistro.registro"
-        android:label="registro" />
+        android:name="triocalavera.freenomo.usuarioregistro.Registro"
+        android:label="Registro" />
 
 </navigation>

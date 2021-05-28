@@ -13,7 +13,7 @@
         android:icon="@drawable/ic_buscar"
         android:title="Buscar" />
     <item
-        android:id="@+id/registro"
+        android:id="@+id/ajustes_Usuario"
         android:icon="@drawable/ic_person"
         android:title="Ajustes" />
 </menu>
