@@ -1,40 +1,35 @@
 package triocalavera.freenomo
 
+import android.app.Activity
 import android.os.Bundle
-import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import triocalavera.freenomo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        setContentView(R.layout.activity_main)
-
-        var navigationController: NavController = findNavController( R.id.nav_host_fragment)
 
 
+        binding = ActivityMainBinding.inflate(this.layoutInflater)
+        val view = binding.root
+        setContentView(view.rootView)
+        var navigationController: NavController = findNavController(R.id.nav_host_fragment)
         setupBottomNav(navigationController)
+
+
     }
 
     private fun setupBottomNav(navigationController: NavController) {
-        //bottom_nav?.let { NavigationUI.setupWithNavController(it, navigationController) }
+        binding.bottomNavigation.let {  NavigationUI.setupWithNavController(it, navigationController) }
     }
 /*
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
