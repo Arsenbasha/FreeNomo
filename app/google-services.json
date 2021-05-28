@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "99903908198",
+    "project_id": "freenomo-62a93",
+    "storage_bucket": "freenomo-62a93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99903908198:android:3ea9bd63ed59a83632c0a7",
+        "android_client_info": {
+          "package_name": "com.example.xmlsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99903908198-1qqofo1me2r2r14r3mffj0abu5lsdmuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBthLQepXQeG7vsBph6gHtO0uhyoUuKp0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99903908198-1qqofo1me2r2r14r3mffj0abu5lsdmuh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99903908198:android:161046dc46940df432c0a7",
+        "android_client_info": {
+          "package_name": "triocalavera.freenomo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99903908198-fat2arm4k9fua60uqkotd2dpgem05h1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "triocalavera.freenomo",
+            "certificate_hash": "1cf3cc126b06e45a94f66734bfbfa3cb0cf5f8de"
+          }
+        },
+        {
+          "client_id": "99903908198-1qqofo1me2r2r14r3mffj0abu5lsdmuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBthLQepXQeG7vsBph6gHtO0uhyoUuKp0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99903908198-1qqofo1me2r2r14r3mffj0abu5lsdmuh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

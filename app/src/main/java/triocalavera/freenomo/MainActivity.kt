@@ -1,14 +1,11 @@
 package triocalavera.freenomo
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import triocalavera.freenomo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +26,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNav(navigationController: NavController) {
-        binding.bottomNavigation.let {  NavigationUI.setupWithNavController(it, navigationController) }
+        binding.bottomNavigation.let {
+            NavigationUI.setupWithNavController(
+                it,
+                navigationController
+            )
+        }
     }
 /*
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
