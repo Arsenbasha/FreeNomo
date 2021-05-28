@@ -24,12 +24,13 @@
 
     <!-- STRINGS REGISTRAR -->
     <string name="textViewRegistrate">Regístrate</string>
-    <string name="textViewRegistrar">Regístrate y encuentra las mejores ofertas</string>
+    <string name="textViewRegistrar">Regístrate y/o publica/encuentra las mejores ofertas</string>
     <string name="textInputNombreCompleto">Nombre completo</string>
     <string name="textInputContraseñaRegistro">Contraseña</string>
     <string name="textInputRepiteContraseña">Repetir contraseña</string>
     <string name="btnRegistrar">Registrar</string>
     <string name="btnTienesCuenta">¿Ya tienes una cuenta? Inicia sesión</string>
+    <string name="textInputTelefono">Telefono</string>
 
     <!-- STRINGS MODIFICAR USUARIO -->
     <string name="cambiarNombre">Cambiar nombre</string>
