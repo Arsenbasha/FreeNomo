@@ -43,7 +43,6 @@ class login : Fragment() {
 
 
         binding.btnInicioSesion.setOnClickListener {
-
             requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.isVisible=true
             findNavController().navigate(R.id.nav_home)
         }
