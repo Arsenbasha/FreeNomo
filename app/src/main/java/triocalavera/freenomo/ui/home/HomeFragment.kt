@@ -1,5 +1,6 @@
 package triocalavera.freenomo.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,9 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import triocalavera.freenomo.Adapter.PostAdapter
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
@@ -18,7 +21,7 @@ import triocalavera.freenomo.R
 class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private lateinit var homeViewModel: HomeViewModel
-private  lateinit var  arrayList:ArrayList<Post>
+    private lateinit var arrayList: ArrayList<Post>
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,18 +29,28 @@ private  lateinit var  arrayList:ArrayList<Post>
     ): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.isVisible =
-            true
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.isVisible =true
         return root
+    }
+
+    @SuppressLint("ResourceType")
+    override fun onStart() {
+        super.onStart()
+       /* val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        if (auth.currentUser==null) {
+            findNavController().navigate(R.id.login)
+            fragmentManager?.beginTransaction()?.remove(this)?.commit()
+        }
+*/
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val grid = view.findViewById<GridView>(R.id.grid)
-         arrayList = arrayList()
-        val postAdapter =PostAdapter(requireContext(),arrayList)
-        grid.adapter=postAdapter
-        grid.onItemClickListener=this
+        arrayList = arrayList()
+        val postAdapter = PostAdapter(requireContext(), arrayList)
+        grid.adapter = postAdapter
+        grid.onItemClickListener = this
 
     }
 
@@ -105,6 +118,6 @@ private  lateinit var  arrayList:ArrayList<Post>
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var post = arrayList.get(position)
-        Toast.makeText(context, "$post" , Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "$post", Toast.LENGTH_LONG).show()
     }
 }
