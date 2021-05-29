@@ -1,4 +1,6 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mainBackground">
 
     <PreferenceCategory app:title="@string/general">
 
@@ -12,14 +14,8 @@
 
         <CheckBoxPreference
             app:defaultValue="false"
-            app:key="modo_oscuro"
+            app:key="modoOscuro"
             app:title="@string/modo_oscuro" />
-
-        <Preference
-            app:key="Ayuda"
-            app:title="@string/ayuda" />
-
-
 
         <ListPreference
             app:defaultValue="EUR"
@@ -29,7 +25,9 @@
             app:title="Moneda"
             app:useSimpleSummaryProvider="true" />
 
-
+        <Preference
+            app:key="Ayuda"
+            app:title="@string/ayuda" />
 
     </PreferenceCategory>
 

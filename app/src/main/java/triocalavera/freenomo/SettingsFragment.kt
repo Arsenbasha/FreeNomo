@@ -3,7 +3,10 @@ package triocalavera.freenomo
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.findNavController
+import androidx.preference.CheckBoxPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -37,6 +40,19 @@ class SettingsFragment : PreferenceFragmentCompat() {
             cerrarSesion!!.isEnabled = false
         cerrarSesion!!.setOnPreferenceClickListener {
             signOut()
+            true
+        }
+
+        val modoOscuro: CheckBoxPreference? = findPreference("modoOscuro")
+
+        modoOscuro?.setOnPreferenceClickListener {
+            if (modoOscuro.isChecked) {
+                Toast.makeText(context, "Seleccionado", Toast.LENGTH_SHORT).show()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                Toast.makeText(context, "No seleccionado", Toast.LENGTH_SHORT).show()
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
             true
         }
 
