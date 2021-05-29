@@ -35,7 +35,7 @@ class Registro : Fragment() {
             viewModel.checkFields()
         }
         binding.textViewInicioSesion.setOnClickListener {
-viewModel.toInicioSesion()
+        viewModel.toInicioSesion()
         }
     }
 
