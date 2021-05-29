@@ -15,7 +15,7 @@
             app:key="modo_oscuro"
             app:title="@string/modo_oscuro" />
 
-        <EditTextPreference
+        <Preference
             app:key="Ayuda"
             app:title="@string/ayuda" />
 
@@ -34,12 +34,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/cuenta">
-        <EditTextPreference
+        <Preference
             app:key="miCuenta"
             app:title="@string/mi_cuenta"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
+        <Preference
             app:key="Cerrar sesion"
             app:title="@string/cerrar_sesion" />
 
