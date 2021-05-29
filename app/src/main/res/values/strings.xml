@@ -38,6 +38,17 @@
     <string name="cambiarContraseña">Cambiar contraseña</string>
     <string name="eliminarCuenta">Eliminar cuenta</string>
     <string name="textMofifica">Modifica tus datos</string>
+    <!-- STRINGS CREAR POST -->
+    <string name="tituloPage">¡Crea tu oferta!</string>
+    <string name="miniTituloPage">Bienvenido al apartado crear ofertas, aquí podrás dar a
+        conocer tus habilidades y que la gente contacte contigo.</string>
+    <string name="tituloPost">Título de la oferta</string>
+    <string name="descripcionPost">Descripción de la oferta</string>
+    <string name="fotoPost">Título de la oferta</string>
+    <string name="precioPost">Precio por tus servicios</string>
+    <string name="telefonoPost">Número de contacto</string>
+
+
 
     <!-- STRING ALERTAS -->
     <!-- contraseña -->
