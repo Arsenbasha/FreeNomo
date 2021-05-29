@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
 
     <GridView
@@ -15,4 +17,17 @@
         android:padding="@dimen/browser_actions_context_menu_min_padding"
         android:verticalSpacing="@dimen/activity_vertical_margin" />
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_create"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/grid"
+        android:layout_marginBottom="30dp"
+  />
+
+
+
+</RelativeLayout>
