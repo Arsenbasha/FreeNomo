@@ -1,0 +1,48 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/general">
+
+        <ListPreference
+            app:defaultValue="castellano"
+            app:entries="@array/idioma_entradas"
+            app:entryValues="@array/idioma_valores"
+            app:key="idioma"
+            app:title="@string/idioma"
+            app:useSimpleSummaryProvider="true" />
+
+        <CheckBoxPreference
+            app:defaultValue="false"
+            app:key="modo_oscuro"
+            app:title="@string/modo_oscuro" />
+
+        <EditTextPreference
+            app:key="Ayuda"
+            app:title="@string/ayuda" />
+
+
+
+        <ListPreference
+            app:defaultValue="EUR"
+            app:entries="@array/moneda_entradas"
+            app:entryValues="@array/moneda_valores"
+            app:key="EUR"
+            app:title="Moneda"
+            app:useSimpleSummaryProvider="true" />
+
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/cuenta">
+        <EditTextPreference
+            app:key="miCuenta"
+            app:title="@string/mi_cuenta"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="Cerrar sesion"
+            app:title="@string/cerrar_sesion" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

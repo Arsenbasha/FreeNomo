@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Idioma -->
+    <string-array name="idioma_entradas">
+        <item>Castellano</item>
+        <item>Catalán</item>
+        <item>Inglés</item>
+    </string-array>
+    <string-array name="idioma_valores">
+        <item>castellano</item>
+        <item>catalan</item>
+        <item>ingles</item>
+    </string-array>
+
+    <!-- Moneda -->
+    <string-array name="moneda_entradas">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>CHF</item>
+        <item>JPY</item>
+        <item>HKD</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>AUD</item>
+        <item>BRL</item>
+        <item>RUB</item>
+        <item>MXN</item>
+    </string-array>
+    <string-array name="moneda_valores">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>CHF</item>
+        <item>JPY</item>
+        <item>HKD</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>AUD</item>
+        <item>BRL</item>
+        <item>RUB</item>
+        <item>MXN</item>
+    </string-array>
+
+</resources>
