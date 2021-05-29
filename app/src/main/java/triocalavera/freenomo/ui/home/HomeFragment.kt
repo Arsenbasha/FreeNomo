@@ -11,15 +11,12 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import triocalavera.freenomo.Adapter.PostAdapter
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
 
 class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
-
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var arrayList: ArrayList<Post>
     override fun onCreateView(
@@ -29,19 +26,21 @@ class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
     ): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.isVisible =true
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.isVisible =
+            true
         return root
     }
 
     @SuppressLint("ResourceType")
     override fun onStart() {
         super.onStart()
-       /* val auth: FirebaseAuth = FirebaseAuth.getInstance()
-        if (auth.currentUser==null) {
-            findNavController().navigate(R.id.login)
-            fragmentManager?.beginTransaction()?.remove(this)?.commit()
-        }
-*/
+        /* val auth: FirebaseAuth = FirebaseAuth.getInstance()
+         if (auth.currentUser==null) {
+             findNavController().navigate(R.id.login)
+             fragmentManager?.beginTransaction()?.remove(this)?.commit()
+         }
+ */
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
