@@ -48,4 +48,18 @@
     <string name="nombreNuevo">Nombre y apellidos</string>
     <!-- correo -->
     <string name="correoNuevo">Correo electrónico</string>
+
+    <!-- Preference Titles -->
+    <string name="general">General</string>
+    <string name="cuenta">Cuenta</string>
+
+    <!-- Preference General -->
+    <string name="idioma">Idioma</string>
+    <string name="modo_oscuro">Modo oscuro</string>
+    <string name="ayuda">Ayuda</string>
+    <!-- Preference Cuenta -->
+    <string name="mi_cuenta">Mi cuenta</string>
+    <string name="cerrar_sesion">Cerrar sesion</string>
+
+
 </resources>

@@ -18,5 +18,9 @@
         android:id="@+id/registro"
         android:name="triocalavera.freenomo.usuarioregistro.Registro"
         android:label="Registro" />
+    <fragment
+        android:id="@+id/datosUsuario"
+        android:name="triocalavera.freenomo.ui.home.DatosUsuario"
+        android:label="DatosUsuario" />
 
 </navigation>
