@@ -18,9 +18,8 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private lateinit var _binding: LoginFragmentBinding
-    fun toRegistro() {
-        _binding.root.findNavController().navigate(R.id.registro)
-    }
+    fun toRegistro() = _binding.root.findNavController().navigate(R.id.registro)
+
 
     fun init(binding: LoginFragmentBinding) {
         auth = FirebaseAuth.getInstance()
@@ -59,6 +58,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    fun toHome() = _binding.root.findNavController().navigate(R.id.nav_home)
+
+
 
 
 }

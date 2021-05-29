@@ -72,6 +72,13 @@
             android:layout_height="wrap_content"
             android:text="@string/btnIniciarSesion"
             android:layout_marginTop="30dp"
+
+            />
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnNoCancelar"
             android:layout_marginBottom="70dp"
             />
         <TextView

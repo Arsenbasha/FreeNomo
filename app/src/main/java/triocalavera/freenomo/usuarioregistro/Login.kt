@@ -32,13 +32,14 @@ class Login : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.init(binding)
-
         binding.btnInicioSesion.setOnClickListener {
             viewModel.checkFields()
         }
-
         binding.textViewRegistrar.setOnClickListener {
             viewModel.toRegistro()
+        }
+        binding.btnCancelar.setOnClickListener {
+            viewModel.toHome()
         }
     }
 }

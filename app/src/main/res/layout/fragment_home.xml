@@ -10,13 +10,15 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:orientation="horizontal">
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="350dp"
+            android:layout_width="340dp"
             android:layout_height="match_parent"
-            android:id="@+id/campoCorreoElectronico"
+            android:id="@+id/searchTextView"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/textInputCorreo">
+            android:hint="@string/buscar">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -26,11 +28,7 @@
         <ImageButton
             android:id="@+id/homeBuscar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="5dp"
-            android:maxWidth="5dp"
-            android:maxHeight="50dp"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_buscar" />
 
 

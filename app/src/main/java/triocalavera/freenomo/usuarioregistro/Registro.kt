@@ -29,13 +29,15 @@ class Registro : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel.init(binding)
         binding.registrarBoton.setOnClickListener {
             viewModel.checkFields()
         }
         binding.textViewInicioSesion.setOnClickListener {
         viewModel.toInicioSesion()
+        }
+        binding.btnCancelarRegistro.setOnClickListener {
+            viewModel.toHome()
         }
     }
 

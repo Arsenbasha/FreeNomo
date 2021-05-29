@@ -82,7 +82,6 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
 
     }
 
-    fun toInicioSesion() {
-        _binding.root.findNavController().navigate(R.id.login)
-    }
+    fun toInicioSesion() =  _binding.root.findNavController().navigate(R.id.login)
+    fun toHome() = _binding.root.findNavController().navigate(R.id.nav_home)
 }

@@ -21,6 +21,7 @@
     <string name="textInputContraseña">Contraseña</string>
     <string name="btnIniciarSesion">INICIAR SESIÓN</string>
     <string name="btnNoCuenta">¿No tienes cuenta? Regístrate</string>
+    <string name="btnNoCancelar">Cancelar</string>
 
     <!-- STRINGS REGISTRAR -->
     <string name="textViewRegistrate">Regístrate</string>
@@ -73,7 +74,7 @@
     <string name="cerrar_sesion">Cerrar sesion</string>
 
     <!-- STRING Home  -->
-    <string name="buscar">Introduzca el texto</string>
+    <string name="buscar">Introduzca el texto a buscar</string>
 
 
 
