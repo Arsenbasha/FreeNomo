@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-    </TextView>
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:id="@+id/campoCorreoElectronico"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/textInputCorreo">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-</LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/homeBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:maxWidth="5dp"
+            android:maxHeight="50dp"
+            android:src="@drawable/ic_buscar" />
+
+
+    </LinearLayout>
+
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/header"
         android:columnWidth="120dp"
         android:horizontalSpacing="@dimen/activity_horizontal_margin"
         android:numColumns="auto_fit"
@@ -31,13 +51,11 @@
         android:id="@+id/floatingActionButton2"
         android:layout_width="56dp"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_create"
-        android:layout_centerHorizontal="true"
         android:layout_alignBottom="@id/grid"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-  />
-
+        android:clickable="true"
+        android:src="@drawable/ic_create" />
 
 
 </RelativeLayout>

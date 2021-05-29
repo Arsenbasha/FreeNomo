@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import triocalavera.freenomo.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view.rootView)
         val navigationController: NavController = findNavController(R.id.nav_host_fragment)
         setupBottomNav(navigationController)
+
     }
-    private fun setupBottomNav(navigationController: NavController) = binding.bottomNavigation.let {NavigationUI.setupWithNavController(it, navigationController)}
+
+    private fun setupBottomNav(navigationController: NavController) = binding.bottomNavigation.let {NavigationUI.setupWithNavController(it,navigationController) }
 }

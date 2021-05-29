@@ -72,5 +72,9 @@
     <string name="mi_cuenta">Mi cuenta</string>
     <string name="cerrar_sesion">Cerrar sesion</string>
 
+    <!-- STRING Home  -->
+    <string name="buscar">Introduzca el texto</string>
+
+
 
 </resources>
