@@ -38,11 +38,9 @@
             app:key="miCuenta"
             app:title="@string/mi_cuenta"
             app:useSimpleSummaryProvider="true" />
-
         <Preference
-            app:key="Cerrar sesion"
+            app:key="cerrarSesion"
             app:title="@string/cerrar_sesion" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>

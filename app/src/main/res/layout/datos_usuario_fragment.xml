@@ -3,33 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragmentos.AjustesDeUsuario"
     android:orientation="vertical"
-    android:padding="25dp">
+    android:padding="25dp"
+    tools:context=".ui.home.DatosUsuario">
 
     <ImageButton
         android:id="@+id/btnAtrasAjustes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_flecha"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_flecha" />
 
     <ImageView
         android:id="@+id/registroLogo"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:layout_gravity="center"
         android:layout_marginTop="25dp"
-        android:layout_gravity="center" />
+        android:src="@drawable/ic_launcher_foreground" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textMofifica"
-        android:textSize="30sp"
         android:layout_gravity="center"
         android:layout_marginTop="6dp"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp"
+        android:text="@string/textMofifica"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,48 +42,49 @@
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#e1e1e1"
-            ></View>
+            android:background="#e1e1e1"></View>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
 
             >
+
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_person"
-                >
+                android:src="@drawable/ic_person">
 
             </androidx.appcompat.widget.AppCompatImageButton>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cambiarNombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cambiarNombre"
-                android:paddingLeft="0dp"
-                android:padding="15dp"
-                android:background="@android:color/transparent"
-                android:textColor="#000"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:gravity="left"
+                android:padding="15dp"
+                android:paddingLeft="0dp"
+                android:text="@string/cambiarNombre"
                 android:textAllCaps="false"
-                android:textSize="16dp"
-                android:gravity="left" />
+                android:textColor="#000"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#e1e1e1"
-            ></View>
+            android:background="#e1e1e1"></View>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -91,35 +92,35 @@
                 android:src="@drawable/ic_correo">
 
             </androidx.appcompat.widget.AppCompatImageButton>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cambiarCorreo"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cambiarCorreo"
-                android:padding="15dp"
-                android:textColor="#000"
                 android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
                 android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:gravity="left"
+                android:padding="15dp"
+                android:text="@string/cambiarCorreo"
                 android:textAllCaps="false"
-                android:textSize="16dp"
-                android:gravity="left"/>
+                android:textColor="#000"
+                android:textSize="16dp" />
         </LinearLayout>
 
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#e1e1e1"
-            ></View>
-
+            android:background="#e1e1e1"></View>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -132,29 +133,28 @@
                 android:id="@+id/cambiarContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:text="@string/cambiarContraseña"
-                android:padding="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="0dp"
                 android:background="@android:color/transparent"
-                android:textAllCaps="false"
-                android:textSize="16dp"
                 android:gravity="left"
-                />
+                android:padding="15dp"
+                android:text="@string/cambiarContraseña"
+                android:textAllCaps="false"
+                android:textColor="#000"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="#e1e1e1"
             android:layout_marginBottom="120dp"
-            ></View>
+            android:background="#e1e1e1"></View>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -168,16 +168,15 @@
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
-                android:text="@string/eliminarCuenta"
-                android:padding="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="0dp"
                 android:background="@android:color/transparent"
-                android:textColor="#000"
-                android:textAllCaps="false"
-                android:textSize="16dp"
                 android:gravity="left"
-                />
+                android:padding="15dp"
+                android:text="@string/eliminarCuenta"
+                android:textAllCaps="false"
+                android:textColor="#000"
+                android:textSize="16dp" />
 
         </LinearLayout>
 
@@ -186,8 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:background="#e1e1e1"
-            android:paddingTop="120dp"
-            ></View>
+            android:paddingTop="120dp"></View>
 
 
     </LinearLayout>

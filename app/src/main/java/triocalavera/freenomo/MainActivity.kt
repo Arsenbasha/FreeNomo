@@ -1,6 +1,8 @@
 package triocalavera.freenomo
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -21,12 +23,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(view.rootView)
         var navigationController: NavController = findNavController(R.id.nav_host_fragment)
         setupBottomNav(navigationController)
-
+//var crearPostItem:MenuItem =findViewById<Menu>(R.menu.main)
 
     }
 
     private fun setupBottomNav(navigationController: NavController) {
         binding.bottomNavigation.let {
+          //  if (it.selectedItemId==R.id.login)
             NavigationUI.setupWithNavController(
                 it,
                 navigationController

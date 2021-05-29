@@ -22,5 +22,9 @@
         android:id="@+id/datosUsuario"
         android:name="triocalavera.freenomo.ui.home.DatosUsuario"
         android:label="DatosUsuario" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="triocalavera.freenomo.SettingsFragment"
+        android:label="SettingsFragment" />
 
 </navigation>
