@@ -68,7 +68,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
    private fun getPost() {
         val grid = _binding.grid
 
-        var categoryPost = mutableListOf<Post>()
+        val categoryPost = mutableListOf<Post>()
       post.forEach {
           if (it.categoria.equals("Programación",false)){
               categoryPost.add(it)
