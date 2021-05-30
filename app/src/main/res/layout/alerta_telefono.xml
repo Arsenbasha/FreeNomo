@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/correoE"
+        android:id="@+id/oldTlf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pswdCE"
@@ -14,7 +14,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="-2dp"
         android:ems="10"
-        android:hint="@string/teleNuevo"
+        android:hint="@string/cambiarTelefono"
         android:inputType="textEmailAddress" />
 
     <EditText
