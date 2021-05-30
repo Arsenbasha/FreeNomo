@@ -36,7 +36,8 @@
             app:cardCornerRadius="6dp"
             app:cardElevation="6dp">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/createPostFoto"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
                 android:padding="-50dp"

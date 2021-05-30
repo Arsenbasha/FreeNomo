@@ -2,7 +2,11 @@ package triocalavera.freenomo.ui.home
 
 import android.app.Application
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.GridView
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.AndroidViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -11,6 +15,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import triocalavera.freenomo.Adapter.CategoryAdapter
+import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CategoryFragmentBinding
 
 class CategoryViewModel(application: Application) : AndroidViewModel(application) {
@@ -37,9 +43,7 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
                     categorias.add(snapshot.getValue(String::class.java)!!)
-                    categorias.forEach {
-                        Log.d("Categorias", "la lista de categorias es : $it")
-                    }
+                 getCategory()
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -48,6 +52,9 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         })
     }
 
-    fun getCategory(): ArrayList<String> = categorias
-
+    fun getCategory(){
+        val grid = _binding.gridCategory
+        val categoryAdapter = CategoryAdapter(_binding.root.context, categorias)
+        grid.adapter = categoryAdapter
+    }
 }

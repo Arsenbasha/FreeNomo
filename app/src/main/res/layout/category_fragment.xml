@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnWidth="120dp"
+        android:id="@+id/gridCategory"
         android:layout_below="@id/tituloCategoria"
         android:horizontalSpacing="@dimen/activity_horizontal_margin"
         android:numColumns="auto_fit"
