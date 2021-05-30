@@ -142,6 +142,33 @@
                 android:textColor="#000"
                 android:textSize="16dp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_telefono">
+
+            </androidx.appcompat.widget.AppCompatImageButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cambiarTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:gravity="left"
+                android:padding="15dp"
+                android:text="@string/cambiarTelefono"
+                android:textAllCaps="false"
+                android:textColor="#000"
+                android:textSize="16dp" />
+        </LinearLayout>
 
         <View
             android:layout_width="wrap_content"
@@ -152,7 +179,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"

@@ -36,21 +36,28 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         val cerrarSesion: Preference? = findPreference("cerrarSesion")
-        if (auth.currentUser == null)
+        if (auth.currentUser == null)  {
             cerrarSesion!!.isEnabled = false
+            miCuenta!!.isEnabled = false
+        } else {
+            miCuenta!!.isEnabled = true
+        }
+
+
         cerrarSesion!!.setOnPreferenceClickListener {
             signOut()
             true
+
         }
 
         val modoOscuro: CheckBoxPreference? = findPreference("modoOscuro")
 
         modoOscuro?.setOnPreferenceClickListener {
             if (modoOscuro.isChecked) {
-                Toast.makeText(context, "Seleccionado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Modo oscuro activado", Toast.LENGTH_SHORT).show()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
-                Toast.makeText(context, "No seleccionado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Modo oscuro desactivado", Toast.LENGTH_SHORT).show()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
             true
@@ -61,7 +68,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     private fun signOut() {
         auth.signOut()
-        Toast.makeText(context, "Se ha cerrado sesion correctamente ", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Se ha cerrado sesión correctamente", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.nav_home)
     }
 }
