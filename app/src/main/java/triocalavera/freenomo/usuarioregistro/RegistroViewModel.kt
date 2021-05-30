@@ -56,8 +56,7 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
         _auth.createUserWithEmailAndPassword(
             _binding.correoUsuario.editText!!.text.toString(),
             _binding.contraUsuario.editText!!.text.toString()
-        )
-            .addOnCompleteListener { task ->
+        ).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d("INFO", "Se esta creando el usuario")
                     val map: MutableMap<String, Any> = HashMap()
@@ -65,7 +64,6 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
                     map["correo"] = _binding.correoUsuario.editText!!.text.toString()
                     map["telefono"] = _binding.telefonoUsuario.editText!!.text.toString()
                     val id = _auth.currentUser!!.uid
-
                     _database.child("Users").child(id).setValue(map)
                         .addOnSuccessListener {
                             Log.d("INFO", "el usuario se ha creado correctamente ")
@@ -76,10 +74,8 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
                             ).show()
                             _binding.root.findNavController().navigate(R.id.nav_home)
                         }
-
                 }
             }
-
     }
 
     fun toInicioSesion() =  _binding.root.findNavController().navigate(R.id.login)
