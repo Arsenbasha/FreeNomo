@@ -36,11 +36,18 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         val cerrarSesion: Preference? = findPreference("cerrarSesion")
-        if (auth.currentUser == null)
+        if (auth.currentUser == null)  {
             cerrarSesion!!.isEnabled = false
+            miCuenta!!.isEnabled = false
+        } else {
+            miCuenta!!.isEnabled = true
+        }
+
+
         cerrarSesion!!.setOnPreferenceClickListener {
             signOut()
             true
+
         }
 
         val modoOscuro: CheckBoxPreference? = findPreference("modoOscuro")

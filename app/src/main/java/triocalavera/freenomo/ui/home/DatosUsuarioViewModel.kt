@@ -258,7 +258,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                 EmailAuthProvider.getCredential(auth.currentUser!!.email.toString(), password)
             auth.currentUser!!.reauthenticate(credenciales).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    database.child("User").child(auth.currentUser!!.uid).removeValue().addOnSuccessListener{
+                    database.child("Users").child(auth.currentUser!!.uid).removeValue().addOnSuccessListener{
                         auth.currentUser!!.delete().addOnSuccessListener{
                             Toast.makeText(
                                 _binding.root.context,
