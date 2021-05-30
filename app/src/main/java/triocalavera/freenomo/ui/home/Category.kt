@@ -1,5 +1,6 @@
 package triocalavera.freenomo.ui.home
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,6 @@ import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CategoryFragmentBinding
 
 class category : Fragment() {
-
     private lateinit var viewModel: CategoryViewModel
     private lateinit var binding: CategoryFragmentBinding
     private lateinit var arrayList:ArrayList<String>
@@ -33,9 +33,5 @@ class category : Fragment() {
         viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         viewModel.init(binding)
         viewModel.getFirebaseCategory()
-
-
-
     }
-
 }

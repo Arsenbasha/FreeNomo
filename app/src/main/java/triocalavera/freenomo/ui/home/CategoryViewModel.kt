@@ -1,12 +1,11 @@
 package triocalavera.freenomo.ui.home
 
+import android.R
 import android.app.Application
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.GridView
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import androidx.lifecycle.AndroidViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -16,8 +15,8 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import triocalavera.freenomo.Adapter.CategoryAdapter
-import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CategoryFragmentBinding
+
 
 class CategoryViewModel(application: Application) : AndroidViewModel(application) {
     private lateinit var categorias: ArrayList<String>
@@ -55,6 +54,8 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
     fun getCategory(){
         val grid = _binding.gridCategory
         val categoryAdapter = CategoryAdapter(_binding.root.context, categorias)
+        _binding.progresBarCategory.visibility= View.INVISIBLE
         grid.adapter = categoryAdapter
+
     }
 }
