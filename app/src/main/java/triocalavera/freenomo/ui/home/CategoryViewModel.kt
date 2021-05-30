@@ -20,6 +20,7 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private lateinit var _binding: CategoryFragmentBinding
+
     fun init(
         bindig: CategoryFragmentBinding
     ) {
@@ -27,8 +28,8 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         database = Firebase.database.reference
         _binding = bindig
         categorias = ArrayList()
-    }
 
+    }
 
     fun getFirebaseCategory() {
         categorias = ArrayList()
@@ -38,20 +39,23 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
                     categorias.add(snapshot.getValue(String::class.java)!!.capitalize())
-                 getCategory()
+                    getCategory()
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Log.d("Categorias", "Error : loadPost:onCancelled $error")
             }
         })
     }
 
-    fun getCategory(){
+    fun getCategory() {
         val grid = _binding.gridCategory
         val categoryAdapter = CategoryAdapter(_binding.root.context, categorias)
-        _binding.progresBarCategory.visibility= View.INVISIBLE
+        _binding.progresBarCategory.visibility = View.INVISIBLE
         grid.adapter = categoryAdapter
 
     }
+
+
 }

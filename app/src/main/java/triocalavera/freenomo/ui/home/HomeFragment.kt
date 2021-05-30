@@ -45,75 +45,15 @@ class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val grid = view.findViewById<GridView>(R.id.grid)
-        arrayList = arrayList()
-        val postAdapter = PostAdapter(requireContext(), arrayList)
-        grid.adapter = postAdapter
-        grid.onItemClickListener = this
+     //   val grid = view.findViewById<GridView>(R.id.grid)
+
+    //    val postAdapter = PostAdapter(requireContext(), arrayList)
+    //    grid.adapter = postAdapter
+    //    grid.onItemClickListener = this
 
     }
 
-    private fun arrayList(): ArrayList<Post> {
-        var arrayList: ArrayList<Post> = ArrayList()
-        arrayList.add(
-            Post(
-                "post 1", "infromatica",
-                "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/2400/public/media/image/2019/07/origen-nombres-informatica-nunca-hubieras-imaginado_2.jpg",
-                "test "
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 2", "electricista",
-                "https://www.lecciona.com/wp-content/uploads/2020/11/ELECTRICISTA.jpg",
-                "test  electicista"
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 3", "infromatica 2",
-                "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/2400/public/media/image/2019/07/origen-nombres-informatica-nunca-hubieras-imaginado_2.jpg",
-                "test "
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 4", "electricista2",
-                "https://www.lecciona.com/wp-content/uploads/2020/11/ELECTRICISTA.jpg",
-                "test  electicista"
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 1", "infromatica",
-                "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/2400/public/media/image/2019/07/origen-nombres-informatica-nunca-hubieras-imaginado_2.jpg",
-                "test "
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 2", "electricista",
-                "https://www.lecciona.com/wp-content/uploads/2020/11/ELECTRICISTA.jpg",
-                "test  electicista"
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 3", "infromatica 2",
-                "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/2400/public/media/image/2019/07/origen-nombres-informatica-nunca-hubieras-imaginado_2.jpg",
-                "test "
-            )
-        )
-        arrayList.add(
-            Post(
-                "post 4", "electricista2",
-                "https://www.lecciona.com/wp-content/uploads/2020/11/ELECTRICISTA.jpg",
-                "test  electicista"
-            )
-        )
-        return arrayList
 
-    }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var post = arrayList.get(position)
