@@ -41,5 +41,9 @@ class Login : Fragment() {
         binding.btnCancelar.setOnClickListener {
             viewModel.toHome()
         }
+
+        binding.btnFlechaHome.setOnClickListener {
+           viewModel.toHome()
+        }
     }
 }

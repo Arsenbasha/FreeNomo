@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
+        app:navGraph="@navigation/mobile_navigation"
+        android:layout_marginTop="15dp"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
