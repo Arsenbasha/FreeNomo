@@ -75,6 +75,8 @@
 
     <!-- STRING Home  -->
     <string name="buscar">Introduzca el texto a buscar</string>
+    <!-- String categorias -->
+    <string name="categorias">Seleccione una categoría </string>
 
 
 
