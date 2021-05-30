@@ -32,6 +32,11 @@ class DatosUsuario : Fragment() {
 
         viewModel.init(binding)
 
+        binding.btnAtrasAjustes.setOnClickListener {
+            viewModel.irAjustes()
+        }
+
+
         binding.cambiarNombreUsuario.setOnClickListener {
             viewModel.alertaCambiarNombre(view, requireActivity())
 

@@ -245,7 +245,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         val inflater = requireActivity.layoutInflater;
         val inflater2 = inflater.inflate(R.layout.alerta_borrar_cuenta,null)
         val editText = inflater2.findViewById<EditText>(R.id.pwsdUser)
-        builder.setTitle("Title")
+        builder.setTitle("Borrar cuenta")
         builder.setMessage("¿Estás seguro de que quieres borrar la cuenta? Una vez borrada no podrás volver a acceder a ella")
         builder.setView(inflater2)
         builder.setPositiveButton(
@@ -265,8 +265,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                                 "Tu cuenta a sido borrada correctamente.",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            auth.signOut()
-                            _binding.root.findNavController().navigate(R.id.nav_home)
+                             _binding.root.findNavController().navigate(R.id.nav_home)
                         }
                     }
                 } else {
@@ -280,5 +279,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         }
         builder.show()
     }
+
+    fun irAjustes() = _binding.root.findNavController().navigate(R.id.settingsFragment)
 
 }
