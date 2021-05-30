@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "146416583239",
+    "firebase_url": "https://freenomo-4e1af-default-rtdb.firebaseio.com",
     "project_id": "freenomo-4e1af",
     "storage_bucket": "freenomo-4e1af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:146416583239:android:48bcd750f9403974d12762",
+        "mobilesdk_app_id": "1:146416583239:android:5e5e59a4cc9430d9d12762",
         "android_client_info": {
           "package_name": "triocalavera.freenomo"
         }
