@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.category">
-<ProgressBar
-    android:id="@+id/progresBarCategory"
-    android:layout_width="100dp"
 
-    android:layout_height="100dp"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    />
+    <ProgressBar
+        android:id="@+id/progresBarCategory"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
     <TextView
         android:id="@+id/tituloCategoria"
         android:layout_width="wrap_content"
@@ -20,15 +20,16 @@
         android:text="@string/categorias"
         android:textSize="40sp"
         android:textStyle="bold" />
+
     <GridView
-        android:columnWidth="120dp"
         android:id="@+id/gridCategory"
-        android:layout_below="@id/tituloCategoria"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:verticalSpacing="5dp"
+        android:layout_below="@id/tituloCategoria"
+        android:columnWidth="120dp"
         android:horizontalSpacing="5dp"
-        android:stretchMode="columnWidth" android:numColumns="2"
-        />
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp" />
 
 </RelativeLayout>
