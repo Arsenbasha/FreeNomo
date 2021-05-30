@@ -240,6 +240,45 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         }
         builder.show()
     }
-
+    fun alertaBorrarCuenta(view: View, requireActivity: FragmentActivity) {
+        val builder = AlertDialog.Builder(view.context)
+        val inflater = requireActivity.layoutInflater;
+        val inflater2 = inflater.inflate(R.layout.alerta_borrar_cuenta,null)
+        val editText = inflater2.findViewById<EditText>(R.id.pwsdUser)
+        builder.setTitle("Title")
+        builder.setMessage("¿Estás seguro de que quieres borrar la cuenta? Una vez borrada no podrás volver a acceder a ella")
+        builder.setView(inflater2)
+        builder.setPositiveButton(
+            "Borrar Cuenta"
+        ) { dialog, id ->
+            database = Firebase.database.reference
+            auth = FirebaseAuth.getInstance()
+            val password = editText.text.toString()
+            val credenciales =
+                EmailAuthProvider.getCredential(auth.currentUser!!.email.toString(), password)
+            auth.currentUser!!.reauthenticate(credenciales).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    database.child("User").child(auth.currentUser!!.uid).removeValue().addOnSuccessListener{
+                        auth.currentUser!!.delete().addOnSuccessListener{
+                            Toast.makeText(
+                                _binding.root.context,
+                                "Tu cuenta a sido borrada correctamente.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            auth.signOut()
+                            _binding.root.findNavController().navigate(R.id.nav_home)
+                        }
+                    }
+                } else {
+                    Log.d("INFO", "Error ${task.result}")
+                }
+            }
+        }
+        builder.setNegativeButton(
+            "Cancelar"
+        ) { dialog, id ->
+        }
+        builder.show()
+    }
 
 }

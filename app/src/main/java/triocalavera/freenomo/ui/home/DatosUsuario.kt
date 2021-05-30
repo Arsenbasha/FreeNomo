@@ -49,6 +49,10 @@ class DatosUsuario : Fragment() {
             viewModel.alertaCambiarContra(view, requireActivity())
         }
 
+        binding.eliminarCuenta.setOnClickListener {
+            viewModel.alertaBorrarCuenta(view, requireActivity())
+        }
+
 
 
     }
