@@ -60,6 +60,8 @@
     <string name="nombreNuevo">Nombre y apellidos</string>
     <!-- correo -->
     <string name="correoNuevo">Correo electrónico</string>
+    <!-- correo -->
+    <string name="teleNuevo">Correo electrónico</string>
 
     <!-- Preference Titles -->
     <string name="general">General</string>
