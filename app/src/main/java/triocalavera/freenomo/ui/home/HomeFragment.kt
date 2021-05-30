@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import triocalavera.freenomo.Adapter.PostAdapter
 import triocalavera.freenomo.Model.Post
@@ -37,7 +38,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         viewModel.init(binding,requireActivity())
-       viewModel.obtenerPost()
+        viewModel.obtenerPost()
+        binding.homeBuscar.setOnClickListener {
+           viewModel.setSearch()
+            viewModel.obtenerPost()
+        }
+        binding.floatingActionButton2.setOnClickListener {
+            findNavController().navigate(R.id.crearpost)
+        }
 
 
     //    grid.adapter = postAdapter

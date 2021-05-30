@@ -15,7 +15,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import triocalavera.freenomo.Adapter.PostAdapter
 import triocalavera.freenomo.Model.Post
-import triocalavera.freenomo.databinding.FragmentHomeBinding
 import triocalavera.freenomo.databinding.SearchForCategoryFragmentBinding
 
 class SearchForCategoryViewModel(application: Application) : AndroidViewModel(application) {
@@ -23,17 +22,21 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
     private lateinit var database: DatabaseReference
     private lateinit var _binding: SearchForCategoryFragmentBinding
     private var post = mutableListOf<Post>()
+    private lateinit var _find: String
 
     @SuppressLint("StaticFieldLeak")
     private lateinit var _activity: FragmentActivity
     fun init(
         bindig: SearchForCategoryFragmentBinding,
-        requireActivity: FragmentActivity
+        requireActivity: FragmentActivity,
+        find: String
     ) {
         auth = FirebaseAuth.getInstance()
         database = Firebase.database.reference
         _binding = bindig
         _activity = requireActivity
+        _find = find
+
 
     }
 
@@ -66,16 +69,16 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
     }
 
     private fun getPost() {
-        val grid = _binding.grid
+        val grid = _binding.gridSearchCategory
 
         val categoryPost = mutableListOf<Post>()
         post.forEach {
-            if (it.categoria.equals("Programación",false)){
+            if (it.categoria.equals(_find, false)) {
                 categoryPost.add(it)
             }
         }
         val categoryAdapter = PostAdapter(_binding.root.context, categoryPost)
-        _binding.progresBarHome.visibility = View.INVISIBLE
+        _binding.progresBarSearchCategory.visibility = View.INVISIBLE
         grid.adapter = categoryAdapter
     }
 }

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CategoryFragmentBinding
 
-class category : Fragment() {
+class Category : Fragment() {
     private lateinit var viewModel: CategoryViewModel
     private lateinit var binding: CategoryFragmentBinding
     override fun onCreateView(

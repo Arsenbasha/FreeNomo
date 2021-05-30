@@ -56,7 +56,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
             true
 
         }
-
         val modoOscuro: CheckBoxPreference? = findPreference("modoOscuro")
 
         modoOscuro?.setOnPreferenceClickListener {

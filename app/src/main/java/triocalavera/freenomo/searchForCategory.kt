@@ -32,8 +32,9 @@ class searchForCategory : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(SearchForCategoryViewModel::class.java)
-        viewModel.init(binding,requireActivity())
+        viewModel.init(binding, requireActivity(), args.categoria)
         viewModel.obtenerPost()
+        binding.nombreCategoria.text=args.categoria
 
     }
 

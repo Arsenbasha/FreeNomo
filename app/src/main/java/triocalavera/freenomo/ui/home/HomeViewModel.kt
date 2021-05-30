@@ -13,7 +13,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import triocalavera.freenomo.Adapter.CategoryAdapter
 import triocalavera.freenomo.Adapter.PostAdapter
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.databinding.FragmentHomeBinding
@@ -23,6 +22,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private lateinit var database: DatabaseReference
     private lateinit var _binding: FragmentHomeBinding
     private var post = mutableListOf<Post>()
+    private var search = ""
 
     @SuppressLint("StaticFieldLeak")
     private lateinit var _activity: FragmentActivity
@@ -37,27 +37,28 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     }
 
-     fun obtenerPost() {
+    fun obtenerPost() {
         database.child("post").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
                     post.clear()
                     for (c: DataSnapshot in dataSnapshot.children) {
-                            post.add(
-                                Post(
-                                    c.child("uuid").value.toString(),
-                                    c.child("titulo").value.toString(),
-                                    c.child("categoria").value.toString(),
-                                    c.child("foto").value.toString(),
-                                    c.child("descripcion").value.toString(),
-                                    c.child("telefono").value.toString(),
-                                    c.child("precio").value.toString()
-                                )
+                        post.add(
+                            Post(
+                                c.child("uuid").value.toString(),
+                                c.child("titulo").value.toString(),
+                                c.child("categoria").value.toString(),
+                                c.child("foto").value.toString(),
+                                c.child("descripcion").value.toString(),
+                                c.child("telefono").value.toString(),
+                                c.child("precio").value.toString()
                             )
+                        )
                     }
                     getPost()
                 }
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
                 Log.d("INFO", "loadPost:onCancelled", databaseError.toException())
@@ -65,18 +66,27 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-   private fun getPost() {
+    private fun getPost() {
         val grid = _binding.grid
+        var searchList = mutableListOf<Post>()
+        if (!search.isEmpty()) {
+            post.forEach {
+                if (it.titulo.contains(search, false)) {
+                    searchList.add(it)
+                }
+            }
+            val categoryAdapter = PostAdapter(_binding.root.context, searchList)
+            _binding.progresBarHome.visibility = View.INVISIBLE
+            grid.adapter = categoryAdapter
+        } else {
+            val categoryAdapter = PostAdapter(_binding.root.context, post)
+            _binding.progresBarHome.visibility = View.INVISIBLE
+            grid.adapter = categoryAdapter
+        }
+    }
 
-        val categoryPost = mutableListOf<Post>()
-      post.forEach {
-          if (it.categoria.equals("Programación",false)){
-              categoryPost.add(it)
-          }
-      }
-       val categoryAdapter = PostAdapter(_binding.root.context, categoryPost)
-        _binding.progresBarHome.visibility = View.INVISIBLE
-        grid.adapter = categoryAdapter
+    fun setSearch() {
+        search = _binding.searchTextView.editText!!.text.toString()
     }
 
 

@@ -28,11 +28,11 @@
         android:label="SettingsFragment" />
     <fragment
         android:id="@+id/crearpost"
-        android:name="triocalavera.freenomo.ui.home.crearpost"
+        android:name="triocalavera.freenomo.ui.home.Crearpost"
         android:label="crearpost" />
     <fragment
         android:id="@+id/category"
-        android:name="triocalavera.freenomo.ui.home.category"
+        android:name="triocalavera.freenomo.ui.home.Category"
         android:label="category_fragment"
         tools:layout="@layout/category_fragment" >
         <action

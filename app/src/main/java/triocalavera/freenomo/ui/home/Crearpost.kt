@@ -11,29 +11,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
-import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CrearpostFragmentBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
 
-class crearpost : Fragment() {
+class Crearpost : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var viewModel: CrearpostViewModel
     private lateinit var storage: StorageReference
@@ -41,7 +36,7 @@ class crearpost : Fragment() {
     private var uuid = UUID.randomUUID().toString()
     private var uri: Uri? = null
     private lateinit var binding: CrearpostFragmentBinding
-    var categorias = ArrayList<String>()
+
     private lateinit var categoria: String
     private lateinit var database: DatabaseReference
     private var foto = ""
@@ -60,7 +55,7 @@ class crearpost : Fragment() {
         return view
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.init(binding)
@@ -92,7 +87,6 @@ class crearpost : Fragment() {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     private fun checkFields() {
         val titulo = binding.tituloPost.editText!!.text.toString()
         val descripcion = binding.descriocionPost.editText!!.text.toString()
@@ -102,22 +96,22 @@ class crearpost : Fragment() {
             val file = storage.child(uuid).child(uri!!.lastPathSegment.toString())
             getSize()
             file.putFile(uri!!)
-                .addOnCompleteListener(OnCompleteListener<UploadTask.TaskSnapshot> { task ->
+                .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-
                         task.result!!.storage.downloadUrl.addOnSuccessListener {
-                            foto=it.toString()
+                            foto = it.toString()
                             createPost(titulo, descripcion, precio, telefon)
                         }
                     }
-                })
+                }
         }
     }
+
     private var i: Long = 0
     private fun getSize() {
         database.child("post").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                i = dataSnapshot.childrenCount+1
+                i = dataSnapshot.childrenCount + 1
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -126,7 +120,6 @@ class crearpost : Fragment() {
         })
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     private fun createPost(titulo: String, descripcion: String, precio: String, telefon: String) {
 
         val map: MutableMap<String, Any> = HashMap()

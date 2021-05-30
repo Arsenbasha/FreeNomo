@@ -14,6 +14,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
+import triocalavera.freenomo.Model.Category
 import triocalavera.freenomo.databinding.CrearpostFragmentBinding
 
 
@@ -42,7 +43,7 @@ class CrearpostViewModel(application: Application) : AndroidViewModel(applicatio
         database.child("categorias").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
-                    categorias.add(snapshot.getValue(String::class.java)!!.capitalize())
+                    categorias.add(snapshot.child("nombre").value.toString().capitalize())
                 }
                 setCategorias()
             }

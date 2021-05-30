@@ -1,7 +1,6 @@
 package triocalavera.freenomo.ui.home
 
 import android.app.Application
-import android.content.Context
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.AndroidViewModel
@@ -13,12 +12,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import triocalavera.freenomo.Adapter.CategoryAdapter
-
+import triocalavera.freenomo.Model.Category
 import triocalavera.freenomo.databinding.CategoryFragmentBinding
 
 
 class CategoryViewModel(application: Application) : AndroidViewModel(application) {
-    private lateinit var categorias: ArrayList<String>
+    private var categorias = mutableListOf<Category>()
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private lateinit var _binding: CategoryFragmentBinding
@@ -29,7 +28,7 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         auth = FirebaseAuth.getInstance()
         database = Firebase.database.reference
         _binding = bindig
-        categorias = ArrayList()
+
 
     }
 
@@ -40,11 +39,10 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         database.child("categorias").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
-                    categorias.add(snapshot.getValue(String::class.java)!!.capitalize())
+                    categorias.add(Category(snapshot.child("nombre").value.toString().capitalize(),snapshot.child("foto").value.toString()))
                     getCategory()
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 Log.d("Categorias", "Error : loadPost:onCancelled $error")
             }
