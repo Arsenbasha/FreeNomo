@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -39,10 +40,30 @@ class crearpost : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+        val categorias = arrayOf("Programación","Videojuegos")
+        val spinner = binding.spinner
+
+        spinner.adapter = context?.let {
+            ArrayAdapter(
+                it,
+                android.R.layout.simple_spinner_dropdown_item,
+                categorias
+            )
+        }
+
+
         binding.createPostFoto.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, GALLERY_INTENT)
+
+
+
+
+
         }
     }
 

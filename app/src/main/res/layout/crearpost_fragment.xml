@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="25dp">
+
+
 
     <TextView
         android:id="@+id/tituloOferta"
@@ -20,14 +22,17 @@
         android:layout_height="wrap_content"
         android:text="@string/miniTituloPage"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+
+        >
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -38,11 +43,12 @@
 
             <ImageButton
                 android:id="@+id/createPostFoto"
-                android:layout_width="300dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:padding="-50dp"
                 android:contentDescription="Click Para insertar la imgen"
-                android:src="@drawable/ic_image_300" />
+                android:src="@drawable/ic_image_300"
+                />
         </androidx.cardview.widget.CardView>
 
 
@@ -51,7 +57,9 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/tituloPost">
+            android:hint="@string/tituloPost"
+            app:helperText="Obligatorio*"
+            app:helperTextTextColor="@color/rojo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -63,11 +71,18 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/descripcionPost">
+            android:hint="@string/descripcionPost"
+            app:counterEnabled="true"
+            app:counterMaxLength="300"
+            app:helperText="Obligatorio*"
+            app:helperTextTextColor="@color/rojo"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLength="300"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -75,11 +90,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/precioPost">
+            android:hint="@string/precioPost"
+            app:helperText="Obligatorio*"
+            app:helperTextTextColor="@color/rojo"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+    android:inputType="numberDecimal"
+               />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -88,24 +108,40 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/telefonoPost">
+            android:hint="@string/telefonoPost"
+            app:helperText="Obligatorio*"
+            app:helperTextTextColor="@color/rojo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/boton_redondo"
-            android:src="@drawable/ic_create">
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        </androidx.appcompat.widget.AppCompatImageButton>
+        </Spinner>
+
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/grid"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:clickable="true"
+            android:src="@drawable/ic_create"
+            android:layout_gravity="center"/>
+
+
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
