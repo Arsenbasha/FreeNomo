@@ -23,7 +23,7 @@ class Login : Fragment() {
         val view = inflater.inflate(R.layout.login_fragment, container, false)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)?.isVisible =
-            false
+           false
         binding = LoginFragmentBinding.bind(view)
         return view
     }

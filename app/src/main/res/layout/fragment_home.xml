@@ -52,7 +52,6 @@
         android:layout_alignBottom="@id/grid"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:clickable="true"
         android:src="@drawable/ic_create" />
 
 
