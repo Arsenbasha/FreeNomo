@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
 
-class PostAdapter(var context: Context, var postMutableList: ArrayList<Post>) : BaseAdapter() {
+class PostAdapter(var context: Context, var postMutableList: MutableList<Post>) : BaseAdapter() {
     override fun getCount() = postMutableList.size
 
 
@@ -30,7 +30,5 @@ class PostAdapter(var context: Context, var postMutableList: ArrayList<Post>) : 
             .into(logo)
         text.text = postMutableList[position].titulo
         return view
-
-
     }
 }
