@@ -1,11 +1,8 @@
 package triocalavera.freenomo.ui.home
 
-import android.R
 import android.app.Application
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.RelativeLayout
 import androidx.lifecycle.AndroidViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -30,7 +27,6 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         database = Firebase.database.reference
         _binding = bindig
         categorias = ArrayList()
-
     }
 
 
@@ -41,7 +37,7 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         database.child("categorias").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
-                    categorias.add(snapshot.getValue(String::class.java)!!)
+                    categorias.add(snapshot.getValue(String::class.java)!!.capitalize())
                  getCategory()
                 }
             }

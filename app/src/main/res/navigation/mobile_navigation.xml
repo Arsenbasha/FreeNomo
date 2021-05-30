@@ -34,6 +34,19 @@
         android:id="@+id/category"
         android:name="triocalavera.freenomo.ui.home.category"
         android:label="category_fragment"
-        tools:layout="@layout/category_fragment" />
+        tools:layout="@layout/category_fragment" >
+        <action
+            android:id="@+id/action_category_to_searchForCategory"
+            app:destination="@id/searchForCategory" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchForCategory"
+        android:name="triocalavera.freenomo.searchForCategory"
+        android:label="search_for_category_fragment"
+        tools:layout="@layout/search_for_category_fragment" >
+        <argument
+            android:name="categoria"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

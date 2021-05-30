@@ -7,7 +7,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
 import triocalavera.freenomo.R
+import triocalavera.freenomo.ui.home.categoryDirections
 
 class CategoryAdapter(var context: Context, var categoryList: ArrayList<String>) : BaseAdapter() {
 
@@ -26,9 +28,8 @@ class CategoryAdapter(var context: Context, var categoryList: ArrayList<String>)
         val logo = view.findViewById<ImageView>(R.id.categoryImage)
         var text = view.findViewById<TextView>(R.id.titleCategory)
         text.text = categoryList[position]
-        view.setOnClickListener { Toast.makeText(context ,"${text.text}" , Toast.LENGTH_SHORT).show() }
+        val action = categoryDirections.actionCategoryToSearchForCategory(text.text.toString())
+        view.setOnClickListener {v -> Navigation.findNavController(v).navigate(action) }
         return view
-
-
     }
 }
