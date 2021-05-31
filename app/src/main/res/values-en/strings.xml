@@ -1,0 +1,89 @@
+<resources>
+
+    <!-- STRINGS NAVIGATION -->
+    <string name="app_name">FreeNomo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- STRINGS GENERALES-->
+    <string name="signIn">Sign In</string>
+    <string name="email">Email address</string>
+    <string name="phoneNumber">Phone number</string>
+    <string name="password">Password</string>
+    <string name="repeatPassword">Repeat Password</string>
+    <string name="offerTitle">Offer title</string>
+
+    <!-- STRINGS LOGIN -->
+    <string name="textViewBienvenido">Welcome!</string>
+    <string name="textViewContinuar">Log In to continue</string>
+    <string name="textInputCorreo">Email address</string>
+    <string name="textInputContraseña">Password</string>
+    <string name="btnIniciarSesion">LOG IN</string>
+    <string name="btnNoCuenta">¿Don\'t have account? Sign In</string>
+    <string name="btnNoCancelar">Cancel</string>
+
+    <!-- STRINGS REGISTRAR -->
+    <string name="textViewRegistrate">Sign In</string>
+    <string name="textViewRegistrar">Sign In to publish or find the best offers</string>
+    <string name="textInputNombreCompleto">Full name</string>
+    <string name="textInputContraseñaRegistro">Password</string>
+    <string name="textInputRepiteContraseña">Repeat password</string>
+    <string name="btnRegistrar">Sign In</string>
+    <string name="btnTienesCuenta">¿Alredy have account? Log In</string>
+    <string name="textInputTelefono">Phone number</string>
+
+    <!-- STRINGS MODIFICAR USUARIO -->
+    <string name="cambiarNombre">Change username</string>
+    <string name="cambiarCorreo">Change email</string>
+    <string name="cambiarContraseña">Change password</string>
+    <string name="eliminarCuenta">Delete account</string>
+    <string name="textMofifica">Change your data</string>
+    <string name="cambiarTelefono">Change phone number</string>
+
+    <!-- STRINGS CREAR POST -->
+    <string name="tituloPage">¡Create your offer!</string>
+
+    <string name="miniTituloPage">Welcome to the section create offers, here you can give toknow your skills and have people contact you.</string>
+    <string name="tituloPost">Offer title</string>
+    <string name="descripcionPost">Offer description</string>
+    <string name="fotoPost">Offer title</string>
+    <string name="precioPost">Price for your services</string>
+    <string name="telefonoPost">Phone number to contact</string>
+
+    <!-- STRING ALERTAS -->
+    <string name="contraActual">Current password</string>
+    <string name="contraNueva">New password</string>
+    <string name="repeContraNueva">Repeat password</string>
+    <string name="nombreNuevo">Name and surname</string>
+    <string name="correoNuevo">Email address</string>
+    <string name="teleNuevo">Phone number</string>
+
+    <!-- Preference Titles -->
+    <string name="general">General</string>
+    <string name="cuenta">Account</string>
+
+    <!-- Preference General -->
+    <string name="idioma">Language</string>
+    <string name="modo_oscuro">Dark theme</string>
+    <string name="ayuda">Help</string>
+    <string name="moneda">Currency</string>
+
+    <!-- Preference Cuenta -->
+    <string name="mi_cuenta">My account</string>
+    <string name="cerrar_sesion">Log Out</string>
+
+    <!-- STRING Home -->
+    <string name="buscar">Enter the text to search</string>
+
+    <!-- String categorias -->
+    <string name="categorias">Choose a category</string>
+
+</resources>

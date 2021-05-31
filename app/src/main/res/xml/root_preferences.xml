@@ -5,7 +5,7 @@
     <PreferenceCategory app:title="@string/general">
 
         <ListPreference
-            app:defaultValue="castellano"
+            app:defaultValue="es"
             app:entries="@array/idioma_entradas"
             app:entryValues="@array/idioma_valores"
             app:key="idioma"
@@ -22,7 +22,7 @@
             app:entries="@array/moneda_entradas"
             app:entryValues="@array/moneda_valores"
             app:key="EUR"
-            app:title="Moneda"
+            app:title="@string/moneda"
             app:useSimpleSummaryProvider="true" />
 
         <Preference
