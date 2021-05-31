@@ -3,13 +3,13 @@
     <!-- Idioma -->
     <string-array name="idioma_entradas">
         <item>Castellano</item>
-        <item>Catalán</item>
-        <item>Inglés</item>
+        <item>Català</item>
+        <item>English</item>
     </string-array>
     <string-array name="idioma_valores">
-        <item>castellano</item>
-        <item>catalan</item>
-        <item>ingles</item>
+        <item>es</item>
+        <item>ca</item>
+        <item>en</item>
     </string-array>
 
     <!-- Moneda -->

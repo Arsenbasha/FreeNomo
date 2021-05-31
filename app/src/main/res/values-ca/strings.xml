@@ -1,0 +1,90 @@
+<resources>
+
+    <!-- STRINGS NAVIGATION -->
+
+
+    <string name="app_name">FreeNomo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- STRINGS GENERALES-->
+    <string name="signIn">Iniciar sessió</string>
+    <string name="email">Correu electrònic</string>
+    <string name="phoneNumber">Telèfon</string>
+    <string name="password">Contrasenya</string>
+    <string name="repeatPassword">Repetir contrasenya</string>
+    <string name="offerTitle">Títol de la oferta</string>
+
+    <!-- STRINGS LOGIN -->
+    <string name="textViewBienvenido">¡Benvingut!</string>
+    <string name="textViewContinuar">Iniciar sessió per continuar</string>
+    <string name="textInputCorreo">Correu electrònic</string>
+    <string name="textInputContraseña">Contrasenya</string>
+    <string name="btnIniciarSesion">INICIAR SESSIÓ</string>
+    <string name="btnNoCuenta">¿No tens compte? Registra\'t</string>
+    <string name="btnNoCancelar">Cancel·lar</string>
+
+    <!-- STRINGS REGISTRAR -->
+    <string name="textViewRegistrate">Registra\'t</string>
+    <string name="textViewRegistrar">Registra\'t y/o publica/troba les millors ofertes</string>
+    <string name="textInputNombreCompleto">Nom complet</string>
+    <string name="textInputContraseñaRegistro">Contrasenya</string>
+    <string name="textInputRepiteContraseña">Repetir contrasenya</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="btnTienesCuenta">¿Ja tens compte? Inicia sessió</string>
+    <string name="textInputTelefono">Telèfon</string>
+
+    <!-- STRINGS MODIFICAR USUARIO -->
+    <string name="cambiarNombre">Cambiar nom</string>
+    <string name="cambiarCorreo">Cambiar correu</string>
+    <string name="cambiarContraseña">Cambiar contrasenya</string>
+    <string name="eliminarCuenta">Eliminar compte</string>
+    <string name="textMofifica">Modifica les teves dades</string>
+    <string name="cambiarTelefono">Cambiar telèfon</string>
+
+    <!-- STRINGS CREAR POST -->
+    <string name="tituloPage">¡Crea la teva oferta!</string>
+    <string name="miniTituloPage">Bienvenido al apartado crear ofertas, aquí podrás dar aconocer tus habilidades y que la gente contacte contigo.</string>
+    <string name="tituloPost">Títol de la oferta</string>
+    <string name="descripcionPost">Descripció de la oferta</string>
+    <string name="fotoPost">Títul de la oferta</string>
+    <string name="precioPost">Preu per els teus serveis</string>
+    <string name="telefonoPost">Número de contacte</string>
+
+    <!-- STRING ALERTAS -->
+    <string name="contraActual">Contrasenya actual</string>
+    <string name="contraNueva">Contrasenya nova</string>
+    <string name="repeContraNueva">Repetir contrasenya</string>
+    <string name="nombreNuevo">Nom i cognom</string>
+    <string name="correoNuevo">Correu electrònic</string>
+    <string name="teleNuevo">Telèfon</string>
+
+    <!-- Preference Titles -->
+    <string name="general">General</string>
+    <string name="cuenta">Compte</string>
+
+    <!-- Preference General -->
+    <string name="idioma">Idioma</string>
+    <string name="modo_oscuro">Modo fosc</string>
+    <string name="ayuda">Ajuda</string>
+    <string name="moneda">Moneda</string>
+
+    <!-- Preference Cuenta -->
+    <string name="mi_cuenta">El meu compte</string>
+    <string name="cerrar_sesion">Tancar la sessió</string>
+
+    <!-- STRING Home -->
+    <string name="buscar">Insereix el text a cercar</string>
+
+    <!-- String categorias -->
+    <string name="categorias">Selecciona una categoría</string>
+
+</resources>
