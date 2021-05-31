@@ -40,6 +40,7 @@
     <string name="eliminarCuenta">Eliminar cuenta</string>
     <string name="textMofifica">Modifica tus datos</string>
     <string name="cambiarTelefono">Cambiar teléfono</string>
+
     <!-- STRINGS CREAR POST -->
     <string name="tituloPage">¡Crea tu oferta!</string>
     <string name="miniTituloPage">Bienvenido al apartado crear ofertas, aquí podrás dar a

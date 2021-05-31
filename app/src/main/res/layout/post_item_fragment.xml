@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#bfbfbf"
+
+    app:cardUseCompatPadding="true"
+    tools:context=".post_item">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imagenPost"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                android:src="@color/black" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    <TextView
+                        android:id="@+id/categoriaPostItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Categoría"
+                        android:drawablePadding="10dp"
+                        android:drawableLeft="@drawable/ic_categoria"
+                        android:textSize="15dp"
+                        android:gravity="center"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Publicada"
+                            android:layout_marginRight="45dp"
+                            android:layout_alignParentEnd="true" />
+                        <TextView
+                            android:id="@+id/horaPublicadaPostItem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text=" 13:23"
+                            android:layout_alignParentEnd="true" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tituloPostItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Titulo de la oferta bien bonito"
+                    android:textStyle="bold"
+                    android:textSize="30dp"/>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="#828282"></View>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descripción: "
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:id="@+id/descriocionPostItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aquí va la descripción, Aquí va la descripción Aquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripción"
+                    android:layout_marginTop="2dp"
+                    android:textSize="15dp"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    <TextView
+                        android:id="@+id/precioPostItem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_euro"
+                        android:text="54"
+                        android:textSize="40dp"
+                        android:drawablePadding="5dp"
+                        android:layout_marginBottom="15dp"
+                        />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnPostAbrirChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¡ABRIR CHAT!"
+                    app:cornerRadius="15dp"/>
+                <Button
+                    android:id="@+id/btnPostLLamarAhora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LLAMAR AHORA"
+                    app:cornerRadius="15dp"/>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>
