@@ -54,7 +54,6 @@ class CategoryViewModel(application: Application) : AndroidViewModel(application
         val categoryAdapter = CategoryAdapter(_binding.root.context, categorias)
         _binding.progresBarCategory.visibility = View.INVISIBLE
         grid.adapter = categoryAdapter
-
     }
 
 

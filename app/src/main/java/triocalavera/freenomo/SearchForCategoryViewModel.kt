@@ -22,6 +22,7 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
     private lateinit var database: DatabaseReference
     private lateinit var _binding: SearchForCategoryFragmentBinding
     private var post = mutableListOf<Post>()
+    private var categoryPost = mutableListOf<Post>()
     private lateinit var _find: String
 
     @SuppressLint("StaticFieldLeak")
@@ -71,7 +72,7 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
     private fun getPost() {
         val grid = _binding.gridSearchCategory
 
-        val categoryPost = mutableListOf<Post>()
+         categoryPost = mutableListOf<Post>()
         post.forEach {
             if (it.categoria.equals(_find, false)) {
                 categoryPost.add(it)
@@ -81,4 +82,6 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
         _binding.progresBarSearchCategory.visibility = View.INVISIBLE
         grid.adapter = categoryAdapter
     }
+    fun getCategoryPost(): MutableList<Post> =   categoryPost
+
 }

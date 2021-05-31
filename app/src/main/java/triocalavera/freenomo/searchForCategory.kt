@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import com.google.firebase.database.DatabaseReference
 import triocalavera.freenomo.databinding.SearchForCategoryFragmentBinding
 
-class searchForCategory : Fragment() {
-    private lateinit var searchForCategoryViewModel: SearchForCategoryViewModel
-    private lateinit var database: DatabaseReference
+class searchForCategory : Fragment(), AdapterView.OnItemClickListener {
+
     private lateinit var viewModel: SearchForCategoryViewModel
     private lateinit var binding: SearchForCategoryFragmentBinding
 
@@ -33,6 +33,14 @@ class searchForCategory : Fragment() {
         viewModel = ViewModelProvider(this).get(SearchForCategoryViewModel::class.java)
         viewModel.init(binding, requireActivity(), args.categoria)
         viewModel.obtenerPost()
-        binding.nombreCategoria.text=args.categoria
+        binding.nombreCategoria.text = args.categoria
+        binding.gridSearchCategory.onItemClickListener = this
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+        val action =
+            searchForCategoryDirections.actionSearchForCategoryToPostItem(viewModel.getCategoryPost()[position])
+        view?.setOnClickListener { v -> Navigation.findNavController(v).navigate(action) }
     }
 }

@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="triocalavera.freenomo.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_post_item"
+            app:destination="@id/post_item" />
+    </fragment>
     <fragment
         android:id="@+id/login"
         android:name="triocalavera.freenomo.usuarioregistro.Login"
@@ -47,6 +51,18 @@
         <argument
             android:name="categoria"
             app:argType="string" />
+        <action
+            android:id="@+id/action_searchForCategory_to_post_item"
+            app:destination="@id/post_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/post_item"
+        android:name="triocalavera.freenomo.PostItem"
+        android:label="post_item_fragment"
+        tools:layout="@layout/post_item_fragment" >
+        <argument
+            android:name="post"
+            app:argType="triocalavera.freenomo.Model.Post" />
     </fragment>
 
 </navigation>

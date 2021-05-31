@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#bfbfbf"
+    android:orientation="vertical"
 
     app:cardUseCompatPadding="true"
-    tools:context=".post_item">
+    tools:context=".PostItem">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -36,34 +36,37 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
+
                     <TextView
                         android:id="@+id/categoriaPostItem"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Categoría"
-                        android:drawablePadding="10dp"
                         android:drawableLeft="@drawable/ic_categoria"
-                        android:textSize="15dp"
-                        android:gravity="center"/>
+                        android:drawablePadding="10dp"
+                        android:gravity="center"
+                        android:text="Categoría"
+                        android:textSize="15sp" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_marginTop="3dp"
-                            android:text="Publicada"
                             android:layout_marginRight="45dp"
-                            android:layout_alignParentEnd="true" />
+                            android:text="Publicada" />
+
                         <TextView
                             android:id="@+id/horaPublicadaPostItem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_marginTop="3dp"
-                            android:text=" 13:23"
-                            android:layout_alignParentEnd="true" />
+                            android:text=" 13:23" />
 
                     </RelativeLayout>
 
@@ -74,40 +77,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Titulo de la oferta bien bonito"
-                    android:textStyle="bold"
-                    android:textSize="30dp"/>
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:background="#828282"></View>
+                    android:background="#828282" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Descripción: "
-                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:textSize="15dp"/>
+                    android:text="Descripción: "
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/descriocionPostItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Aquí va la descripción, Aquí va la descripción Aquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripción"
                     android:layout_marginTop="2dp"
-                    android:textSize="15dp"/>
+                    android:text="Aquí va la descripción, Aquí va la descripción Aquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripciónAquí va la descripción, Aquí va la descripción"
+                    android:textSize="15dp" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
+
                     <TextView
                         android:id="@+id/precioPostItem"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/ic_euro"
-                        android:text="54"
-                        android:textSize="40dp"
-                        android:drawablePadding="5dp"
                         android:layout_marginBottom="15dp"
-                        />
+                        android:drawableEnd="@drawable/ic_euro"
+                        android:drawablePadding="5dp"
+                        android:text="54"
+                        android:textSize="40sp" />
                 </RelativeLayout>
 
                 <Button
@@ -115,24 +121,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="¡ABRIR CHAT!"
-                    app:cornerRadius="15dp"/>
+                    app:cornerRadius="15dp" />
+
                 <Button
                     android:id="@+id/btnPostLLamarAhora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="LLAMAR AHORA"
-                    app:cornerRadius="15dp"/>
-
-
-
-
+                    app:cornerRadius="15dp" />
 
 
             </LinearLayout>
 
 
         </LinearLayout>
-
 
 
     </com.google.android.material.card.MaterialCardView>

@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
+import triocalavera.freenomo.ui.home.HomeFragmentDirections
 
 class PostAdapter(var context: Context, var postMutableList: MutableList<Post>) : BaseAdapter() {
     override fun getCount() = postMutableList.size
@@ -29,6 +31,7 @@ class PostAdapter(var context: Context, var postMutableList: MutableList<Post>) 
             // .error(R.drawable.error)
             .into(logo)
         text.text = postMutableList[position].titulo
+
         return view
     }
 }

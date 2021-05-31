@@ -8,14 +8,16 @@ import android.widget.AdapterView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import triocalavera.freenomo.Adapter.PostAdapter
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.FragmentHomeBinding
+import triocalavera.freenomo.searchForCategoryDirections
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var arrayList: ArrayList<Post>
     private lateinit var viewModel: HomeViewModel
@@ -46,13 +48,14 @@ class HomeFragment : Fragment() {
         binding.floatingActionButton2.setOnClickListener {
             findNavController().navigate(R.id.crearpost)
         }
-
-
-    //    grid.adapter = postAdapter
-    //    grid.onItemClickListener = this
-
+        binding.grid.onItemClickListener=this
     }
 
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+        val action =  HomeFragmentDirections.actionNavHomeToPostItem(viewModel.getPostList()[position])
+        view?.setOnClickListener { v -> Navigation.findNavController(v).navigate(action) }
+    }
 
 
 }
