@@ -16,7 +16,8 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.databinding.PostItemFragmentBinding
-import kotlin.properties.Delegates
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class PostItem : Fragment() {
@@ -25,7 +26,7 @@ class PostItem : Fragment() {
     val args: PostItemArgs by navArgs()
     lateinit var post: Post
     private lateinit var binding: PostItemFragmentBinding
-    private var permisosOk =false
+    private var permisosOk = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,11 +41,14 @@ class PostItem : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PostItemViewModel::class.java)
         post = args.post
+
+
         binding.btnPostLLamarAhora.text = "${binding.btnPostLLamarAhora.text} ${post.numero}"
         binding.categoriaPostItem.text = post.categoria
         binding.descriocionPostItem.text = post.descripcion
         binding.tituloPostItem.text = post.titulo.capitalize()
         binding.precioPostItem.text = post.precio
+        binding.horaPublicadaPostItem.text =post.fecha
         Glide.with(this).load(post.foto)
             //  .placeholder(R.drawable.progressbar)
             // .error(R.drawable.error)

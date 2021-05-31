@@ -55,10 +55,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
+
                             android:layout_marginTop="3dp"
-                            android:layout_marginRight="45dp"
-                            android:text="Publicada" />
+
+                            android:layout_toStartOf="@+id/horaPublicadaPostItem"
+                            android:text="Publicada " />
 
                         <TextView
                             android:id="@+id/horaPublicadaPostItem"
