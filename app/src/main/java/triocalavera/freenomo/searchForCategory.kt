@@ -36,6 +36,7 @@ class searchForCategory : Fragment() {
         viewModel.obtenerPost()
         binding.nombreCategoria.text=args.categoria
 
+
     }
 
 }
