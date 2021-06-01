@@ -24,12 +24,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-      binding=ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navigationController: NavController = findNavController(R.id.nav_host_fragment)
         setupBottomNav(navigationController)
 
-        val sharedPreferences: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this@MainActivity)
+        val sharedPreferences: SharedPreferences =
+            PreferenceManager.getDefaultSharedPreferences(this@MainActivity)
         val value = sharedPreferences.getBoolean("modoOscuro", false)
         if (value) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
-        val idioma = sharedPreferences.getString("idioma","es")
+        val idioma = sharedPreferences.getString("idioma", "es")
 
     }
 

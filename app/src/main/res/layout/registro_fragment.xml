@@ -36,7 +36,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
-                android:src="@drawable/ic_launcher_foreground" />
+                android:src="@drawable/logo_ajustes" />
 
             <TextView
                 android:id="@+id/textViewRegistrate"

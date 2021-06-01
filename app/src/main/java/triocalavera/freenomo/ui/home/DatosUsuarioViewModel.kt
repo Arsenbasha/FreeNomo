@@ -227,10 +227,6 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                                     user.updatePassword(newPsw.text.toString())
                                         .addOnCompleteListener { task ->
                                             if (task.isSuccessful) {
-                                                Log.d(
-                                                    "INFO",
-                                                    "Tu contraseña se a modificado correctamente."
-                                                )
                                                 auth.signOut()
                                                 _binding.root.findNavController()
                                                     .navigate(R.id.nav_home)
