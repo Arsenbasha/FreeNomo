@@ -49,6 +49,7 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
                     for (c: DataSnapshot in dataSnapshot.children) {
                         post.add(
                             Post(
+                                c.child("userName").value.toString(),
                                 c.child("uuid").value.toString(),
                                 c.child("titulo").value.toString(),
                                 c.child("categoria").value.toString(),

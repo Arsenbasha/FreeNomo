@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +19,11 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CrearpostFragmentBinding
 import java.time.LocalDateTime
@@ -86,7 +87,6 @@ class Crearpost : Fragment() {
 
             }
         }
-
     }
 
     private fun checkFields() {
@@ -96,7 +96,6 @@ class Crearpost : Fragment() {
         val telefon = binding.telefonoPost.editText!!.text.toString()
         if (!(titulo.isEmpty() || descripcion.isEmpty() || precio.isEmpty() || telefon.isEmpty() || uri == null)) {
             val file = storage.child(uuid).child(uri!!.lastPathSegment.toString())
-            getSize()
             file.putFile(uri!!)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -109,33 +108,23 @@ class Crearpost : Fragment() {
         }
     }
 
-    private var i: Long = 0
-    private fun getSize() {
-        database.child("post").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                i = dataSnapshot.childrenCount + 1
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("Categorias", "Error : loadPost:onCancelled $error")
-            }
-        })
-    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createPost(titulo: String, descripcion: String, precio: String, telefon: String) {
-
-        val map: MutableMap<String, Any> = HashMap()
-        map["titulo"] = titulo
-        map["descripcion"] = descripcion
-        map["precio"] = precio
-        map["telefono"] = telefon
-        map["uuid"] = uuid
-        map["categoria"] = categoria
-        map["foto"] = foto
-        val dateTime = LocalDateTime.now()
-        map["fecha"] = dateTime.format(DateTimeFormatter.ofPattern("M/d/y H:m"))
-        database.child("post").child(i.toString()).setValue(map).addOnSuccessListener {
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        val formattedDateTime = LocalDateTime.now().format(formatter)
+        val post = Post(
+            auth.currentUser!!.uid,
+            uuid,
+            titulo,
+            categoria,
+            foto,
+            descripcion,
+            telefon,
+            precio,
+            formattedDateTime
+        )
+        database.child("post").child(uuid).setValue(post).addOnSuccessListener {
             findNavController().navigate(R.id.nav_home)
         }
 

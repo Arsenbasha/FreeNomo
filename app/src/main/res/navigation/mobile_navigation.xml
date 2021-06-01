@@ -63,6 +63,27 @@
         <argument
             android:name="post"
             app:argType="triocalavera.freenomo.Model.Post" />
+        <action
+            android:id="@+id/action_post_item_to_chatting"
+            app:destination="@id/chatting" />
+    </fragment>
+    <fragment
+        android:id="@+id/chat_nav"
+        android:name="triocalavera.freenomo.ChatRecyrcleView"
+        android:label="chat_fragment"
+        tools:layout="@layout/chat_fragment_recryclerview" >
+        <action
+            android:id="@+id/action_chat_nav_to_chatting"
+            app:destination="@id/chatting" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatting"
+        android:name="triocalavera.freenomo.Chatting"
+        android:label="fragment_chatting"
+        tools:layout="@layout/fragment_chatting" >
+        <argument
+            android:name="uid"
+            app:argType="string" />
     </fragment>
 
 </navigation>

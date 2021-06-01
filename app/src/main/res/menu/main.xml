@@ -13,7 +13,14 @@
         android:icon="@drawable/ic_buscar"
         android:title="Buscar" />
     <item
+        android:id="@+id/chat_nav"
+        android:icon="@drawable/ic_chat_24"
+        android:title="chat"
+        />
+    <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_person"
         android:title="Ajustes" />
+
+
 </menu>
