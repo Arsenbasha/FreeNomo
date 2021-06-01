@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -25,6 +25,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import triocalavera.freenomo.R
 import triocalavera.freenomo.databinding.CrearpostFragmentBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -120,6 +122,7 @@ class Crearpost : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createPost(titulo: String, descripcion: String, precio: String, telefon: String) {
 
         val map: MutableMap<String, Any> = HashMap()
@@ -130,6 +133,8 @@ class Crearpost : Fragment() {
         map["uuid"] = uuid
         map["categoria"] = categoria
         map["foto"] = foto
+        val dateTime = LocalDateTime.now()
+        map["fecha"] = dateTime.format(DateTimeFormatter.ofPattern("M/d/y H:m"))
         database.child("post").child(i.toString()).setValue(map).addOnSuccessListener {
             findNavController().navigate(R.id.nav_home)
         }

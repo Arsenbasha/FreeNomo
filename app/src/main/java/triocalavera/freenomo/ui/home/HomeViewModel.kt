@@ -22,7 +22,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private lateinit var database: DatabaseReference
     private lateinit var _binding: FragmentHomeBinding
     private var post = mutableListOf<Post>()
-    private var postListDone= mutableListOf<Post>()
+    private var postListDone = mutableListOf<Post>()
     private var search = ""
 
     @SuppressLint("StaticFieldLeak")
@@ -52,7 +52,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                                 c.child("foto").value.toString(),
                                 c.child("descripcion").value.toString(),
                                 c.child("telefono").value.toString(),
-                                c.child("precio").value.toString()
+                                c.child("precio").value.toString(),
+                                c.child("fecha").value.toString()
                             )
                         )
                     }
@@ -76,7 +77,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                     searchList.add(it)
                 }
             }
-            postListDone=searchList
+            postListDone = searchList
             val categoryAdapter = PostAdapter(_binding.root.context, searchList)
             _binding.progresBarHome.visibility = View.INVISIBLE
             grid.adapter = categoryAdapter
@@ -84,15 +85,15 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             val categoryAdapter = PostAdapter(_binding.root.context, post)
             _binding.progresBarHome.visibility = View.INVISIBLE
             grid.adapter = categoryAdapter
-            postListDone=post
+            postListDone = post
         }
     }
 
     fun setSearch() {
         search = _binding.searchTextView.editText!!.text.toString()
     }
-     fun getPostList():MutableList<Post> =         postListDone
 
+    fun getPostList(): MutableList<Post> = postListDone
 
 
 }

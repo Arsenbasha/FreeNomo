@@ -55,7 +55,8 @@ class SearchForCategoryViewModel(application: Application) : AndroidViewModel(ap
                                 c.child("foto").value.toString(),
                                 c.child("descripcion").value.toString(),
                                 c.child("telefono").value.toString(),
-                                c.child("precio").value.toString()
+                                c.child("precio").value.toString(),
+                                c.child("fecha").value.toString()
                             )
                         )
                     }

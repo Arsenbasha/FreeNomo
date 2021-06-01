@@ -3,6 +3,7 @@ package triocalavera.freenomo.usuarioregistro
 import android.annotation.SuppressLint
 import android.app.Application
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.navigation.findNavController
@@ -39,6 +40,7 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
             Toast.makeText(_binding.root.context, "Los datos estan llenos ", Toast.LENGTH_SHORT)
                 .show()
             if (contra == repeContra) {
+
                 registroUsuario()
             } else {
                 Toast.makeText(
@@ -57,27 +59,30 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
             _binding.correoUsuario.editText!!.text.toString(),
             _binding.contraUsuario.editText!!.text.toString()
         ).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+            if (task.isSuccessful) {
+                _binding.progresBarRegistro.visibility = View.VISIBLE
+                _binding.linearLayoutRegistro.visibility= View.GONE
                     Log.d("INFO", "Se esta creando el usuario")
-                    val map: MutableMap<String, Any> = HashMap()
-                    map["nombreCompleto"] = _binding.nombreUsuario.editText!!.text.toString()
-                    map["correo"] = _binding.correoUsuario.editText!!.text.toString()
-                    map["telefono"] = _binding.telefonoUsuario.editText!!.text.toString()
-                    val id = _auth.currentUser!!.uid
-                    _database.child("Users").child(id).setValue(map)
-                        .addOnSuccessListener {
-                            Log.d("INFO", "el usuario se ha creado correctamente ")
-                            Toast.makeText(
-                                _binding.root.context,
-                                "Usuario creado correctamente",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            _binding.root.findNavController().navigate(R.id.nav_home)
-                        }
-                }
+                val map: MutableMap<String, Any> = HashMap()
+                map["nombreCompleto"] = _binding.nombreUsuario.editText!!.text.toString()
+                map["correo"] = _binding.correoUsuario.editText!!.text.toString()
+                map["telefono"] = _binding.telefonoUsuario.editText!!.text.toString()
+                val id = _auth.currentUser!!.uid
+                _database.child("Users").child(id).setValue(map)
+                    .addOnSuccessListener {
+                        Log.d("INFO", "el usuario se ha creado correctamente ")
+                        Toast.makeText(
+                            _binding.root.context,
+                            "Usuario creado correctamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        _binding.progresBarRegistro.visibility = View.GONE
+                        _binding.root.findNavController().navigate(R.id.nav_home)
+                    }
             }
+        }
     }
 
-    fun toInicioSesion() =  _binding.root.findNavController().navigate(R.id.login)
+    fun toInicioSesion() = _binding.root.findNavController().navigate(R.id.login)
     fun toHome() = _binding.root.findNavController().navigate(R.id.nav_home)
 }

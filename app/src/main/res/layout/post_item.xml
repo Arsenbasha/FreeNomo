@@ -9,25 +9,33 @@
         >
 
 
-        <ImageView
+        <com.theophrast.ui.widget.SquareImageView
             android:id="@+id/perfilPost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
             android:layout_marginTop="5dp"
-            android:src="@drawable/ic_home" />
+            android:src="@drawable/ic_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
 
         <TextView
             android:id="@+id/titlePost"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/perfilPost"
-
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="prueba"
-            android:textStyle="bold|italic" />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_gravity="bottom"
+            android:textColor="@android:color/white"
+            android:background="#55000000"/>
 
     </RelativeLayout>
+
+
+
+
+
+
 
 </androidx.cardview.widget.CardView>
