@@ -47,9 +47,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-
-            >
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:layout_width="wrap_content"
@@ -59,7 +57,7 @@
 
             </androidx.appcompat.widget.AppCompatImageButton>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/cambiarNombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,12 +65,12 @@
                 android:layout_marginBottom="0dp"
                 android:background="@android:color/transparent"
                 android:gravity="left"
+                android:textStyle="bold"
                 android:padding="15dp"
                 android:paddingLeft="0dp"
                 android:text="@string/cambiarNombre"
                 android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="16dp" />
+                android:textSize="18dp" />
         </LinearLayout>
 
         <View
@@ -92,7 +90,7 @@
 
             </androidx.appcompat.widget.AppCompatImageButton>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/cambiarCorreo"
 
                 android:layout_width="match_parent"
@@ -104,8 +102,8 @@
                 android:padding="15dp"
                 android:text="@string/cambiarCorreo"
                 android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="16dp" />
+                android:textStyle="bold"
+                android:textSize="18dp" />
         </LinearLayout>
 
 
@@ -128,7 +126,7 @@
 
             </androidx.appcompat.widget.AppCompatImageButton>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/cambiarContrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,8 +137,8 @@
                 android:padding="15dp"
                 android:text="@string/cambiarContraseña"
                 android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="16dp" />
+                android:textStyle="bold"
+                android:textSize="18dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -155,7 +153,7 @@
 
             </androidx.appcompat.widget.AppCompatImageButton>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/cambiarTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,8 +164,8 @@
                 android:padding="15dp"
                 android:text="@string/cambiarTelefono"
                 android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="16dp" />
+                android:textStyle="bold"
+                android:textSize="18dp" />
         </LinearLayout>
 
         <View
@@ -190,10 +188,9 @@
 
             </androidx.appcompat.widget.AppCompatImageButton>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/eliminarCuenta"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="0dp"
@@ -202,8 +199,8 @@
                 android:padding="15dp"
                 android:text="@string/eliminarCuenta"
                 android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="16dp" />
+                android:textStyle="bold"
+                android:textSize="18dp" />
 
         </LinearLayout>
 

@@ -18,4 +18,5 @@
     <color name="mainBackground">#ffffff</color>
 
     <color name="rojo">#FF0000</color>
+    <color name="confirmar">#008F39</color>
 </resources>

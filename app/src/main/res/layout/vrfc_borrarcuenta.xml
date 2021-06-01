@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/prueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+        android:background="@drawable/fondo_alerta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="¡Cambio exitoso!"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:text="¡Tu correo electronico se a modificado correctamente!"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/selector_alerta"
+        android:src="@drawable/ic_cerrar"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/prueba"
+        app:layout_constraintTop_toTopOf="@id/prueba"
+        app:layout_constraintStart_toStartOf="@id/prueba"
+        app:layout_constraintEnd_toEndOf="@id/prueba" />
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:text="Confirmar"
+        android:textSize="16sp"
+        android:background="@color/confirmar"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="@id/prueba"
+        app:layout_constraintEnd_toEndOf="@id/prueba"
+        app:layout_constraintTop_toBottomOf="@id/prueba"
+        app:layout_constraintBottom_toBottomOf="@id/prueba"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

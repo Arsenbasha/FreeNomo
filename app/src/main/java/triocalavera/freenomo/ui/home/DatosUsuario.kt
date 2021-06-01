@@ -16,6 +16,13 @@ class DatosUsuario : Fragment() {
     private lateinit var binding: DatosUsuarioFragmentBinding
     private lateinit var viewModel: DatosUsuarioViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+    }
+
+
     override fun onCreateView (
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +46,6 @@ class DatosUsuario : Fragment() {
 
         binding.cambiarNombreUsuario.setOnClickListener {
             viewModel.alertaCambiarNombre(view, requireActivity())
-
         }
 
         binding.cambiarCorreo.setOnClickListener {
@@ -57,6 +63,8 @@ class DatosUsuario : Fragment() {
         binding.eliminarCuenta.setOnClickListener {
             viewModel.alertaBorrarCuenta(view, requireActivity())
         }
+
+
 
 
 
