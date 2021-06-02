@@ -5,6 +5,7 @@ import android.app.Application
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.AndroidViewModel
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -19,13 +20,15 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
     private lateinit var _auth: FirebaseAuth
     private lateinit var _database: DatabaseReference
     private lateinit var _binding: RegistroFragmentBinding
-
+private lateinit var _fragmentManager: FragmentManager
     fun init(
-        bindig: RegistroFragmentBinding
+        bindig: RegistroFragmentBinding,
+        fragmentManager: FragmentManager?
     ) {
         _auth = FirebaseAuth.getInstance()
         _database = Firebase.database.reference
         _binding = bindig
+        _fragmentManager=fragmentManager!!
 
     }
 
@@ -78,6 +81,7 @@ class RegistroViewModel(application: Application) : AndroidViewModel(application
                         ).show()
                         _binding.progresBarRegistro.visibility = View.GONE
                         _binding.root.findNavController().navigate(R.id.nav_home)
+                       _fragmentManager?.beginTransaction()?.remove(_binding.root.context)?.commit()
                     }
             }
         }

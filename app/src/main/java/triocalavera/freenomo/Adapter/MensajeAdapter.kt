@@ -1,5 +1,6 @@
 package triocalavera.freenomo.Adapter
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +13,12 @@ import triocalavera.freenomo.R
 import java.util.*
 
 
-class MensajeAdapter(private val mensjeMutableList: MutableList<Mensaje>) :
+class MensajeAdapter(var color: Int,var miNombre:String) :
     RecyclerView.Adapter<MensajeAdapter.MensajeViewHolder>() {
+    private val mensjeMutableList = mutableListOf<Mensaje>()
 
     inner class MensajeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         var logo = view.findViewById<ImageView>(R.id.imageViewChatReycrcle)
         var userName = view.findViewById<TextView>(R.id.nombreUsuariochat)
         var firstLetra = view.findViewById<TextView>(R.id.letraChatPost)
@@ -35,15 +38,22 @@ class MensajeAdapter(private val mensjeMutableList: MutableList<Mensaje>) :
 
     override fun getItemCount() = mensjeMutableList.size
 
-    private var iscolor: Boolean=false
-    private var color=0
+
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: MensajeViewHolder, position: Int) {
         val rnd = Random()
-        if (!iscolor) {
+
+        if (color == 0) {
             color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-            iscolor = true
         }
-//        holder.firstLetra.text = mensjeMutableList[position].nombre[0].toString().capitalize()
+       holder.firstLetra.text = mensjeMutableList[position].nombre[0].toString().capitalize()
+        if (miNombre != mensjeMutableList[position].nombre){
+            holder.userName.setBackgroundColor(R.color.rojo)
+
+        }else{
+
+        }
+        holder.userName.text = mensjeMutableList[position].mensaje
         holder.userName.text = mensjeMutableList[position].mensaje
         holder.logo.setBackgroundColor(color);
 

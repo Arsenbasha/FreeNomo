@@ -84,6 +84,12 @@
         <argument
             android:name="uid"
             app:argType="string" />
+        <argument
+            android:name="color"
+            app:argType="integer" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
     </fragment>
 
 </navigation>

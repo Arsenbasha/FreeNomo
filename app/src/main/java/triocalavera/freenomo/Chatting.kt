@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,6 @@ import triocalavera.freenomo.Adapter.MensajeAdapter
 import triocalavera.freenomo.Model.Mensaje
 import triocalavera.freenomo.databinding.FragmentChattingBinding
 
-
 class Chatting : Fragment() {
 
     val args: ChattingArgs by navArgs()
@@ -26,7 +24,7 @@ class Chatting : Fragment() {
     private lateinit var databasemensajesrecibidos: DatabaseReference
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var uid: String
+    private lateinit var Destinationuid: String
     private lateinit var binding: FragmentChattingBinding
     private var nombredetino: String = ""
     private var minombre: String = ""
@@ -42,94 +40,106 @@ class Chatting : Fragment() {
     }
 
 
+    private var myUid = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        val id = auth.currentUser!!.uid
-        uid = args.uid
+        myUid = auth.currentUser!!.uid
+        Destinationuid = args.uid
 
         database = FirebaseDatabase.getInstance().reference
-        databasemensajesenvio = database.child("chat").child(id).child(uid)
+        databasemensajesenvio = database.child("chat").child(myUid).child(Destinationuid)
             .child("mensajes")
-        databasemensajesrecibidos = database.child("chat").child(uid).child(id)
+        databasemensajesrecibidos = database.child("chat").child(Destinationuid).child(myUid)
             .child("mensajes")
-        database.child("Users").child(id)
+        database.child("Users").child(myUid)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     minombre = dataSnapshot.child("nombreCompleto").value.toString()
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
-
             })
-        if (uid != null || !(uid == "")) {
-            databasemensajesenvio.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if (!dataSnapshot.exists()) {
-                        database.child("Users").child(uid).addListenerForSingleValueEvent(object :
+        primerChat()
+
+    }
+
+
+    private fun primerChat() {
+        databasemensajesenvio.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (!dataSnapshot.exists()) {
+                    database.child("Users").child(Destinationuid)
+                        .addListenerForSingleValueEvent(object :
                             ValueEventListener {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                nombredetino = dataSnapshot.child("nombreCompleto").value.toString()
+                                nombredetino =
+                                    dataSnapshot.child("nombreCompleto").value.toString()
                                 val map: MutableMap<String, Any> = HashMap()
                                 map["nombre"] = nombredetino
-                                database.child("chat").child(id).child(uid).setValue(map)
-                                database.child("Users").child(id)
+                                map["uidDestino"] = Destinationuid
+                                database.child("chat").child(myUid).child(Destinationuid)
+                                    .setValue(map)
+                                database.child("Users").child(myUid)
                                     .addListenerForSingleValueEvent(object :
                                         ValueEventListener {
                                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                                             val map: MutableMap<String, Any> = HashMap()
                                             map["nombre"] = minombre
+                                            map["uidDestino"] = myUid
                                             binding.nombre.text = nombredetino
-                                            database.child("chat").child(uid).child(id)
+                                            database.child("chat").child(Destinationuid)
+                                                .child(myUid)
                                                 .setValue(map)
                                         }
+
                                         override fun onCancelled(error: DatabaseError) {
                                         }
                                     })
                             }
+
                             override fun onCancelled(error: DatabaseError) {
                             }
                         })
-                    }else{
-                        database.child("Users").child(uid)
-                            .addListenerForSingleValueEvent(object : ValueEventListener {
-                                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                                    nombredetino = dataSnapshot.child("nombreCompleto").value.toString()
+                } else {
+                    database.child("Users").child(Destinationuid)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                nombredetino = dataSnapshot.child("nombreCompleto").value.toString()
+                                binding.nombre.text = nombredetino
+                            }
 
-                                    binding.nombre.text = nombredetino}
-
-                                override fun onCancelled(error: DatabaseError) {}
-
-                            })
-                    }
+                            override fun onCancelled(error: DatabaseError) {}
+                        })
                 }
-                override fun onCancelled(databaseError: DatabaseError) {
-                    // Getting Post failed, log a message
-                    Log.d("INFO", "loadPost:onCancelled", databaseError.toException())
-                }
-            })
-        }else{Toast.makeText(context,"Es null",Toast.LENGTH_SHORT).show()}
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.d("INFO", "loadPost:onCancelled", databaseError.toException())
+            }
+        })
     }
+
     private lateinit var adapter: MensajeAdapter
-    private var lista = mutableListOf<Mensaje>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        nombredetino = args.nombre
+        databasemensajesenvio = database.child("chat").child(myUid).child(Destinationuid)
+            .child("mensajes")
+        databasemensajesrecibidos = database.child("chat").child(Destinationuid).child(myUid)
+            .child("mensajes")
+        val color = args.color
+        binding.fotoPerfil.setBackgroundColor(color)
+        binding.Letra.text=nombredetino[0].toString().capitalize()
         adapter = MensajeAdapter(
-            lista
+            color, minombre
         )
-
-        val recycleView = view.findViewById<RecyclerView>(R.id.rvMensajes)
-        recycleView.adapter = adapter
-        recycleView.layoutManager = LinearLayoutManager(context)
         binding.btnEnviar.setOnClickListener {
-
             databasemensajesenvio.push()
                 .setValue(Mensaje(nombredetino, binding.txtMensaje.text.toString(), "000"))
-            Toast.makeText(context,"nombre del destino$nombredetino  $uid",Toast.LENGTH_SHORT).show()
             databasemensajesrecibidos.push()
                 .setValue(Mensaje(minombre, binding.txtMensaje.text.toString(), "000"))
-            Toast.makeText(context," mi nombre$minombre $id",Toast.LENGTH_SHORT).show()
             binding.txtMensaje.text.clear()
         }
         adapter.registerAdapterDataObserver(object : AdapterDataObserver() {
@@ -150,6 +160,10 @@ class Chatting : Fragment() {
             override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
             override fun onCancelled(databaseError: DatabaseError) {}
         })
+
+        val recycleView = view.findViewById<RecyclerView>(R.id.rvMensajes)
+        recycleView.adapter = adapter
+        recycleView.layoutManager = LinearLayoutManager(context)
     }
 
     private fun setScrollbar() {

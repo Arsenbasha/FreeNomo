@@ -14,16 +14,13 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import triocalavera.freenomo.Model.ChatRoom
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.databinding.PostItemFragmentBinding
-import triocalavera.freenomo.ui.home.CategoryDirections
 
 
 class PostItem : Fragment() {
@@ -51,20 +48,20 @@ class PostItem : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PostItemViewModel::class.java)
         post = args.post
-val id =auth.currentUser?.uid
-
-        binding.btnPostLLamarAhora.text = "${binding.btnPostLLamarAhora.text} ${post.numero}"
+        val id = auth.currentUser?.uid
+        binding.btnPostLLamarAhora.text = post.numero
         binding.categoriaPostItem.text = post.categoria
         binding.descriocionPostItem.text = post.descripcion
         binding.tituloPostItem.text = post.titulo.capitalize()
         binding.precioPostItem.text = post.precio
         binding.horaPublicadaPostItem.text = post.fecha
         binding.btnPostAbrirChat.setOnClickListener {
-            if(id != post.userName){
-                val action = PostItemDirections.actionPostItemToChatting(post.userName)
+            if (id != post.userName) {
+                val action = PostItemDirections.actionPostItemToChatting(post.userName,0,"")
                 Navigation.findNavController(it).navigate(action)
-            }else {
-                Toast.makeText(context,"No puedes enviarte chat a ti mismo ",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "No puedes enviarte chat a ti mismo ", Toast.LENGTH_LONG)
+                    .show()
             }
 
         }
@@ -76,7 +73,6 @@ val id =auth.currentUser?.uid
             abrirLlamada()
         }
     }
-
 
 
     private fun checkpermison() {

@@ -1,17 +1,20 @@
 package triocalavera.freenomo.Adapter
 
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import triocalavera.freenomo.ChatRecyrcleViewDirections
 import triocalavera.freenomo.Model.Chat
 import triocalavera.freenomo.R
 import java.util.*
 
-class ChatAdapter(private val chatsMutableList: MutableList<Chat>) :
+class ChatAdapter( private val chatsMutableList: MutableList<Chat>) :
     RecyclerView.Adapter<ChatAdapter.MensajeViewHolder>() {
 
     inner class MensajeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,11 +35,12 @@ class ChatAdapter(private val chatsMutableList: MutableList<Chat>) :
     override fun onBindViewHolder(holder: MensajeViewHolder, position: Int) {
         val rnd = Random()
         val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-
-       holder.firstLetra.text =chatsMutableList[position].username[0].toString().capitalize()
+        holder.firstLetra.text =chatsMutableList[position].username[0].toString().capitalize()
         holder.userName.text = chatsMutableList[position].username
         holder.logo.setBackgroundColor(color);
 
+        val action = ChatRecyrcleViewDirections.actionChatNavToChatting(chatsMutableList[position].uidDestino,color,chatsMutableList[position].username)
+        holder.itemView.setOnClickListener { v -> Navigation.findNavController(v).navigate(action) }
     }
 
 }

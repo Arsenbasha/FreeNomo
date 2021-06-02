@@ -52,7 +52,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                                 c.child("categoria").value.toString(),
                                 c.child("foto").value.toString(),
                                 c.child("descripcion").value.toString(),
-                                c.child("telefono").value.toString(),
+                                c.child("numero").value.toString(),
                                 c.child("precio").value.toString(),
                                 c.child("fecha").value.toString()
                             )
