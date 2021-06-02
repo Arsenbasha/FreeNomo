@@ -79,6 +79,12 @@
     <string name="nombreUsuario">Username</string>
     <string name="hora">Time</string>
 
+    <!-- POST ITEM -->
+    <string name="categoria">Category</string>
+    <string name="publicada">Published</string>
+    <string name="descripcion">Description:</string>
+    <string name="abrirChat">¡OPEN CHAT!</string>
+
     <!-- Preference Titles -->
     <string name="general">General</string>
     <string name="cuenta">Account</string>

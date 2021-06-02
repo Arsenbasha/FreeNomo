@@ -80,6 +80,12 @@
     <string name="nombreUsuario">Nombre de usuario</string>
     <string name="hora">Hora</string>
 
+    <!-- POST ITEM -->
+    <string name="categoria">Categoría</string>
+    <string name="publicada">Publicada</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="abrirChat">¡ABRIR CHAT!</string>
+
     <!-- Preference Titles -->
     <string name="general">General</string>
     <string name="cuenta">Cuenta</string>
