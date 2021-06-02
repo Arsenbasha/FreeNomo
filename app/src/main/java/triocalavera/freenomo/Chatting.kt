@@ -131,7 +131,7 @@ class Chatting : Fragment() {
             .child("mensajes")
         val color = args.color
         binding.fotoPerfil.setBackgroundColor(color)
-        binding.Letra.text=nombredetino[0].toString().capitalize()
+    //    binding.Letra.text=nombredetino[0].toString().capitalize()
         adapter = MensajeAdapter(
             color, minombre
         )
