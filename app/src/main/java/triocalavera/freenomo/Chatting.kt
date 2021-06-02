@@ -133,7 +133,7 @@ class Chatting : Fragment() {
         binding.fotoPerfil.setBackgroundColor(color)
     //    binding.Letra.text=nombredetino[0].toString().capitalize()
         adapter = MensajeAdapter(
-            color, minombre
+            color, nombredetino
         )
         binding.btnEnviar.setOnClickListener {
             databasemensajesenvio.push()
