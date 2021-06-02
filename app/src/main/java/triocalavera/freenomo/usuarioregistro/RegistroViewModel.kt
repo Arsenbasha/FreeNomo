@@ -81,6 +81,7 @@ private lateinit var _fragmentManager: FragmentManager
                         ).show()
                         _binding.progresBarRegistro.visibility = View.GONE
                         _binding.root.findNavController().navigate(R.id.nav_home)
+                     //  _fragmentManager?.beginTransaction()?.remove(_binding.root.context)?.commit()
                     }
             }
         }

@@ -47,7 +47,7 @@ class MensajeAdapter(var color: Int,var miNombre:String) :
             color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         }
        holder.firstLetra.text = mensjeMutableList[position].nombre[0].toString().capitalize()
-        if (miNombre != mensjeMutableList[position].nombre){
+        if (miNombre == mensjeMutableList[position].nombre){
             holder.userName.setBackgroundColor(R.color.rojo)
 
         }else{

@@ -58,6 +58,7 @@
     <string name="fotoPost">Título de la oferta</string>
     <string name="precioPost">Precio por tus servicios</string>
     <string name="telefonoPost">Número de contacto</string>
+    <string name="obligatorio">Obligatorio*</string>
 
     <!-- STRING ALERTAS -->
     <string name="contraActual">Contraseña actual</string>
@@ -66,6 +67,24 @@
     <string name="nombreNuevo">Nombre y apellidos</string>
     <string name="correoNuevo">Correo electrónico</string>
     <string name="teleNuevo">Telefono</string>
+
+    <!-- MENU -->
+    <string name="home">Principal</string>
+    <string name="crear">Crear</string>
+    <string name="buscar">Buscar</string>
+    <string name="chat">Chat</string>
+    <string name="ajustes">Ajustes</string>
+
+    <!-- CHAT -->
+    <string name="noChats">No hay chats</string>
+    <string name="nombreUsuario">Nombre de usuario</string>
+    <string name="hora">Hora</string>
+
+    <!-- POST ITEM -->
+    <string name="categoria">Categoría</string>
+    <string name="publicada">Publicada</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="abrirChat">¡ABRIR CHAT!</string>
 
     <!-- Preference Titles -->
     <string name="general">General</string>
@@ -82,7 +101,7 @@
     <string name="cerrar_sesion">Cerrar sesion</string>
 
     <!-- STRING Home -->
-    <string name="buscar">Introduzca el texto a buscar</string>
+    <string name="buscarHome">Introduzca el texto a buscar</string>
 
     <!-- String categorias -->
     <string name="categorias">Seleccione una categoría </string>
