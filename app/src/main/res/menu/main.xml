@@ -3,24 +3,23 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
         android:id="@+id/crearpost"
         android:icon="@drawable/ic_create"
-        android:title="Crear" />
+        android:title="@string/crear" />
     <item
         android:id="@+id/category"
         android:icon="@drawable/ic_buscar"
-        android:title="Buscar" />
+        android:title="@string/buscar" />
     <item
         android:id="@+id/chat_nav"
         android:icon="@drawable/ic_chat_24"
-        android:title="chat"
-        />
+        android:title="@string/chat" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/ic_person"
-        android:title="Ajustes" />
+        android:title="@string/ajustes" />
 
 
 </menu>

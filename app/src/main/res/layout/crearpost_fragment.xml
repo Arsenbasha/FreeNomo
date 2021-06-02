@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tituloPost"
-            app:helperText="Obligatorio*"
+            app:helperText="@string/obligatorio"
             app:helperTextTextColor="@color/rojo">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +79,7 @@
             android:hint="@string/descripcionPost"
             app:counterEnabled="true"
             app:counterMaxLength="300"
-            app:helperText="Obligatorio*"
+            app:helperText="@string/obligatorio"
             app:helperTextTextColor="@color/rojo">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/precioPost"
-            app:helperText="Obligatorio*"
+            app:helperText="@string/obligatorio"
             app:helperTextTextColor="@color/rojo">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -109,7 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/telefonoPost"
-            app:helperText="Obligatorio*"
+            app:helperText="@string/obligatorio"
             app:helperTextTextColor="@color/rojo">
 
             <com.google.android.material.textfield.TextInputEditText

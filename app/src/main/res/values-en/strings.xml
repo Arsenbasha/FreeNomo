@@ -57,6 +57,7 @@
     <string name="fotoPost">Offer title</string>
     <string name="precioPost">Price for your services</string>
     <string name="telefonoPost">Phone number to contact</string>
+    <string name="obligatorio">Required*</string>
 
     <!-- STRING ALERTAS -->
     <string name="contraActual">Current password</string>
@@ -65,6 +66,18 @@
     <string name="nombreNuevo">Name and surname</string>
     <string name="correoNuevo">Email address</string>
     <string name="teleNuevo">Phone number</string>
+
+    <!-- MENU -->
+    <string name="home">Home</string>
+    <string name="crear">New</string>
+    <string name="buscar">Search</string>
+    <string name="chat">Chat</string>
+    <string name="ajustes">Settings</string>
+
+    <!-- CHAT -->
+    <string name="noChats">No chats available</string>
+    <string name="nombreUsuario">Username</string>
+    <string name="hora">Time</string>
 
     <!-- Preference Titles -->
     <string name="general">General</string>
@@ -81,7 +94,7 @@
     <string name="cerrar_sesion">Log Out</string>
 
     <!-- STRING Home -->
-    <string name="buscar">Enter the text to search</string>
+    <string name="buscarHome">Enter the text to search</string>
 
     <!-- String categorias -->
     <string name="categorias">Choose a category</string>
