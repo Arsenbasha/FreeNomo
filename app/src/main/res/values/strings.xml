@@ -86,5 +86,18 @@
 
     <!-- String categorias -->
     <string name="categorias">Seleccione una categoría </string>
+    
+    <!-- STRING NUEVAS ALERTAS -->
+    <string name="cambioExitoso">Cambio exitoso</string>
+    <string name="cambioTelefono">¡Tu teléfono se a modificado correctamente!</string>
+    <string name="cambioCorreo">¡Tu correo se a modificado correctamente!</string>
+    <string name="cambioNombre">¡Tu nombre se a modificado correctamente!</string>
+    <string name="cambioContrasena">¡Tu contraseña se a modificado correctamente!</string>
+    <string name="cambioBorrarCuenta">¡Tu cuenta se a eliminado correctamente!</string>
+    <string name="datoIncorrecto">¡Has introducido algún dato incorrecto, intentalo de nuevo!</string>
+    <string name="datoMalInsertado">¡Algo no ha ido bien!</string>
+    <string name="btnConfirmarAlertas">Confirmar</string>
+
+
 
 </resources>

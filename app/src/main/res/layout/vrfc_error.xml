@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
-            android:text="¡Algo no ha ido bien!"
+            android:text="@string/datoMalInsertado"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -34,7 +34,7 @@
             android:layout_marginBottom="50dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:text="¡Has introducido algún dato incorrecto, intentalo de nuevo!"
+            android:text="@string/datoIncorrecto"
             android:textAlignment="center"
             android:textSize="20sp" />
 
@@ -56,7 +56,7 @@
         android:id="@+id/btnConfirmar"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:text="Confirmar"
+        android:text="@string/btnConfirmarAlertas"
         android:textSize="16sp"
         android:background="@color/confirmar"
         android:layout_marginEnd="16dp"

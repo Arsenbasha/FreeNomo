@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
-            android:text="¡Cambio exitoso!"
+            android:text="@string/cambioExitoso"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -34,7 +34,7 @@
             android:layout_marginBottom="50dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:text="¡Tu correo electronico se a modificado correctamente!"
+            android:text="@string/cambioBorrarCuenta"
             android:textAlignment="center"
             android:textSize="20sp" />
 
@@ -45,7 +45,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/selector_alerta"
-        android:src="@drawable/ic_cerrar"
+        android:src="@drawable/ic_check"
         android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/prueba"
         app:layout_constraintTop_toTopOf="@id/prueba"
@@ -56,7 +56,7 @@
         android:id="@+id/btnConfirmar"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:text="Confirmar"
+        android:text="@string/btnConfirmarAlertas"
         android:textSize="16sp"
         android:background="@color/confirmar"
         android:layout_marginEnd="16dp"
