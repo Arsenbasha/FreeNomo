@@ -18,6 +18,7 @@
             app:title="@string/modo_oscuro" />
 
         <ListPreference
+            android:enabled="false"
             app:defaultValue="EUR"
             app:entries="@array/moneda_entradas"
             app:entryValues="@array/moneda_valores"
