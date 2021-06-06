@@ -22,6 +22,4 @@
         android:text="Prueba mensaje izquierda"
         android:textColor="@color/white"
         android:textSize="15dp" />
-
-
 </RelativeLayout>
