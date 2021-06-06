@@ -30,6 +30,7 @@ class ChatRecyrcleView : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         recyrcleViewModel = ViewModelProvider(this).get(ChatRecyrcleViewModel::class.java)
         val view = inflater.inflate(R.layout.chat_fragment_recryclerview, container, false)
         binding = ChatFragmentRecryclerviewBinding.bind(view)
@@ -38,50 +39,10 @@ class ChatRecyrcleView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-        database =
-            FirebaseDatabase.getInstance().reference.child("chat").child(auth.currentUser!!.uid)
 
-        database.addListenerForSingleValueEvent(object :
-            ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (c: DataSnapshot in dataSnapshot.children) {
-                        if (!c.child("nombre").value.toString().equals("null")) {
-                            lista.add(Chat("", "", c.child("nombre").value.toString(),c.child("uidDestino").value.toString()))
-                        }
-                    }
-                    if (lista.isNotEmpty()) {
-                        binding.nohayChat.visibility = View.GONE
-                        lista.forEach { v ->
-                        }
-
-                        adapter = ChatAdapter(
-                            lista
-                        )
-                        val dividerItemDecoration = DividerItemDecoration(
-                            binding.recyclerViewChats.context,
-                            LinearLayoutManager.VERTICAL
-                        )
-                        binding.recyclerViewChats.addItemDecoration(dividerItemDecoration)
-                        val recycleView = view.findViewById<RecyclerView>(R.id.recycler_viewChats)
-                        recycleView.adapter = adapter
-                        recycleView.layoutManager = LinearLayoutManager(context)
-                    }
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
-    }
-
-    override fun onStart() {
-        super.onStart()
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser == null) {
-            view?.let {
+            view.let {
                 Snackbar.make(
                     it.rootView,
                     "Debes iniciar Sesion para ver tus Chats",
@@ -89,8 +50,55 @@ class ChatRecyrcleView : Fragment() {
                 )
             }
             findNavController().navigate(R.id.login)
+        } else {
+            database =
+                FirebaseDatabase.getInstance().reference.child("chat").child(auth.currentUser!!.uid)
+
+            database.addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        for (c: DataSnapshot in dataSnapshot.children) {
+                            if (!c.child("nombre").value.toString().equals("null")) {
+                                lista.add(
+                                    Chat(
+                                        "",
+                                        "",
+                                        c.child("nombre").value.toString(),
+                                        c.child("uidDestino").value.toString()
+                                    )
+                                )
+                            }
+                        }
+                        if (lista.isNotEmpty()) {
+                            binding.nohayChat.visibility = View.GONE
+                            lista.forEach { v ->
+                            }
+
+                            adapter = ChatAdapter(
+                                lista
+                            )
+                            val dividerItemDecoration = DividerItemDecoration(
+                                binding.recyclerViewChats.context,
+                                LinearLayoutManager.VERTICAL
+                            )
+                            binding.recyclerViewChats.addItemDecoration(dividerItemDecoration)
+                            val recycleView =
+                                view.findViewById<RecyclerView>(R.id.recycler_viewChats)
+                            recycleView.adapter = adapter
+                            recycleView.layoutManager = LinearLayoutManager(context)
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
         }
     }
+
+
 }
 
 
