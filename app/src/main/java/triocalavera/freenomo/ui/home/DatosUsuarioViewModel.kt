@@ -124,7 +124,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                                         }
                                     }
                             } else {
-                                Log.d("INFO", "Error")
+                                popUpError(view, requireActivity)
                             }
                         }
                 }
@@ -173,17 +173,13 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                                     .updateChildren(map)
                                     ?.addOnCompleteListener { task ->
                                         if (task.isSuccessful) {
-                                            Log.d(
-                                                "INFO",
-                                                "Tu teléfono a sido cambiado correctamente."
-                                            )
 
                                         } else {
                                             Log.d("INFO", "Error")
                                         }
                                     }
                             } else {
-                                Log.d("INFO", "Error")
+                                popUpError(view, requireActivity)
                             }
                         }
                 }
@@ -233,12 +229,8 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                                             }
                                         }
                                 } else {
-                                    Toast.makeText(
-                                        _binding.root.context,
-                                        "Re-Authentication succes failed.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
+                                    popUpError(view, requireActivity)
+                                                                    }
                             }
                     }
                 }
@@ -282,7 +274,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                             }
                         }
                 } else {
-                    Log.d("INFO", "Error ${task.result}")
+                    popUpError(view, requireActivity)
                 }
             }
         }
