@@ -39,8 +39,8 @@ class ChatRecyrcleView : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         auth = FirebaseAuth.getInstance()
+
         if (auth.currentUser == null) {
             view.let {
                 Snackbar.make(
@@ -53,13 +53,13 @@ class ChatRecyrcleView : Fragment() {
         } else {
             database =
                 FirebaseDatabase.getInstance().reference.child("chat").child(auth.currentUser!!.uid)
-
+lista.clear()
             database.addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()) {
                         for (c: DataSnapshot in dataSnapshot.children) {
-                            if (!c.child("nombre").value.toString().equals("null")) {
+                            if (c.child("nombre").value.toString() != "null") {
                                 lista.add(
                                     Chat(
                                         "",
