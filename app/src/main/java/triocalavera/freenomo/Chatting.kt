@@ -26,8 +26,8 @@ class Chatting : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var Destinationuid: String
     private lateinit var binding: FragmentChattingBinding
-    private var nombredetino: String = ""
-    private var minombre: String = ""
+    private lateinit var nombredetino:String
+    private lateinit var minombre: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

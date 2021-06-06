@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import triocalavera.freenomo.Adapter.ChatAdapter
@@ -67,13 +69,27 @@ class ChatRecyrcleView : Fragment() {
                         recycleView.layoutManager = LinearLayoutManager(context)
                     }
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        auth = FirebaseAuth.getInstance()
+        if (auth.currentUser == null) {
+            view?.let {
+                Snackbar.make(
+                    it.rootView,
+                    "Debes iniciar Sesion para ver tus Chats",
+                    Snackbar.LENGTH_LONG
+                )
+            }
+            findNavController().navigate(R.id.login)
+        }
     }
 }
 

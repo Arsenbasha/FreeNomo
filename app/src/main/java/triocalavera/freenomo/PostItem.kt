@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -56,12 +57,21 @@ class PostItem : Fragment() {
         binding.precioPostItem.text = post.precio
         binding.horaPublicadaPostItem.text = post.fecha
         binding.btnPostAbrirChat.setOnClickListener {
-            if (id != post.userName) {
-                val action = PostItemDirections.actionPostItemToChatting(post.userName,0,"")
-                Navigation.findNavController(it).navigate(action)
+            if (id.isNullOrEmpty()) {
+                Toast.makeText(context,"Debes iniciar session para hablar con el ofertante",Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.login)
             } else {
-                Toast.makeText(context, "No puedes enviarte chat a ti mismo ", Toast.LENGTH_LONG)
-                    .show()
+                if (id != post.userName) {
+                    val action = PostItemDirections.actionPostItemToChatting(post.userName, 0, "")
+                    Navigation.findNavController(it).navigate(action)
+                } else {
+                    Toast.makeText(
+                        context,
+                        "No puedes enviarte chat a ti mismo ",
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                }
             }
 
         }
