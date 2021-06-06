@@ -105,7 +105,7 @@
 
     <!-- String categorias -->
     <string name="categorias">Seleccione una categoría </string>
-    
+
     <!-- STRING NUEVAS ALERTAS -->
     <string name="cambioExitoso">Cambio exitoso</string>
     <string name="cambioTelefono">¡Tu teléfono se a modificado correctamente!</string>
@@ -117,6 +117,16 @@
     <string name="datoMalInsertado">¡Algo no ha ido bien!</string>
     <string name="btnConfirmarAlertas">Confirmar</string>
 
+    <!-- CAMBIAR DATOS USUARIO -->
+    <string name="recuerda">Recuerda poner tu nombre y apellidos completos para poder cambiar tu nombre a la vista de los demás.</string>
+    <string name="cambiarCorreoElectronico">Cambiar el correo electronico.</string>
+    <string name="numTelefono">Introduce tu número de teléfono.</string>
+    <string name="contraseña">"Introduce tu contraseña dos veces para asegurarnos que eres el propietario de esta cuenta."</string>
+    <string name="cambiar">Cambiar ahora</string>
+    <string name="seguro">"¿Estás seguro de que quieres borrar la cuenta? Una vez borrada no podrás volver a acceder a ella."</string>
+    <string name="camposVacios">Porfavor no deje campos vacíos</string>
+    <string name="rellena">Porfavor rellena todos los campos</string>
+    <string name="borrar">Borrar cuenta</string>
 
 
 </resources>

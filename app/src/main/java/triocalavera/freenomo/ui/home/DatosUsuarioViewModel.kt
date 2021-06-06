@@ -43,11 +43,11 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         val nombre = inflater2.findViewById<EditText>(R.id.cambiarNombre)
         val currPswd = inflater2.findViewById<EditText>(R.id.pswdCN)
 
-        builder.setTitle("Cambiar nombre")
-        builder.setMessage("Recuerda poner tu nombre y apellidos completos para poder cambiar tu nombre a la vista de los demás.")
+        builder.setTitle(R.string.cambiarNombre)
+        builder.setMessage(R.string.recuerda)
         builder.setView(inflater2)
         builder.setPositiveButton(
-            "Cambiar nombre"
+            R.string.cambiarNombre
         ) { dialog, id ->
             database = Firebase.database.reference
             auth = FirebaseAuth.getInstance()
@@ -79,15 +79,16 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
             } else {
                 Toast.makeText(
                     _binding.root.context,
-                    "Porfavor rellena todos los campos",
+                    R.string.rellena,
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
-        builder.setNegativeButton("Cancelar") { dialog, id ->
+        builder.setNegativeButton(R.string.btnNoCancelar) { dialog, id ->
         }
         builder.show()
     }
+
     fun alertaCambiarCorreo(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
@@ -95,11 +96,11 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         val inflater2 = inflater.inflate(R.layout.alerta_correo, null)
         val correo = inflater2.findViewById<EditText>(R.id.correoE)
         val currPswd = inflater2.findViewById<EditText>(R.id.pswdCE)
-        builder.setTitle("Cambiar correo")
-        builder.setMessage("Cambiar el correo electronico'")
+        builder.setTitle(R.string.cambiarCorreo)
+        builder.setMessage(R.string.cambiarCorreoElectronico)
         builder.setView(inflater2)
         builder.setPositiveButton(
-            "Cambiar correo"
+            R.string.cambiarCorreo
         ) { dialog, id ->
             database = Firebase.database.reference
             auth = FirebaseAuth.getInstance()
@@ -131,17 +132,18 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
             } else {
                 Toast.makeText(
                     _binding.root.context,
-                    "Porfavor no dejes ningún campo vacío.",
+                    R.string.camposVacios,
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
         builder.setNegativeButton(
-            "Cancelar"
+            R.string.btnNoCancelar
         ) { dialog, id ->
         }
         builder.show()
     }
+
     fun alertaCambiarTelefono(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
@@ -150,11 +152,11 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         val nombre = inflater2.findViewById<EditText>(R.id.oldTlf)
         val currPswd = inflater2.findViewById<EditText>(R.id.pswdCE)
 
-        builder.setTitle("Cambiar telfono")
-        builder.setMessage("Introduce tu número de teléfono.")
+        builder.setTitle(R.string.cambiarTelefono)
+        builder.setMessage(R.string.numTelefono)
         builder.setView(inflater2)
         builder.setPositiveButton(
-            "Cambiar teléfono"
+            R.string.cambiarTelefono
         ) { dialog, id ->
             database = Firebase.database.reference
             auth = FirebaseAuth.getInstance()
@@ -166,7 +168,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                     user.reauthenticate(credential)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                               popUpTelefono(view, requireActivity)
+                                popUpTelefono(view, requireActivity)
                                 val map: MutableMap<String, Any?> = HashMap()
                                 map["telefono"] = nombre.text.toString()
                                 database.child("Users").child(user.uid)
@@ -186,15 +188,16 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
             } else {
                 Toast.makeText(
                     _binding.root.context,
-                    "Porfavor rellena todos los campos",
+                    R.string.rellena,
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
-        builder.setNegativeButton("Cancelar") { dialog, id ->
+        builder.setNegativeButton(R.string.btnNoCancelar) { dialog, id ->
         }
         builder.show()
     }
+
     fun alertaCambiarContra(view: View, requireActivity: FragmentActivity) {
 
         val builder = AlertDialog.Builder(view.context)
@@ -203,11 +206,11 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         val oldPswd = inflater2.findViewById<EditText>(R.id.contrasenaA)
         val newPsw = inflater2.findViewById<EditText>(R.id.contrasenaN)
         val repeatPsw = inflater2.findViewById<EditText>(R.id.contrasenaNR)
-        builder.setTitle("Cambiar contraseña")
-        builder.setMessage("Introduce tu contraseña dos veces para asegurarnos que eres el propietario de esta cuenta.")
+        builder.setTitle(R.string.cambiarContraseña)
+        builder.setMessage(R.string.contraseña)
         builder.setView(inflater2)
         builder.setPositiveButton(
-            "Cambiar ahora"
+            R.string.cambiar
         ) { dialog, id ->
             auth = FirebaseAuth.getInstance()
             if (oldPswd.text.isNotEmpty() && newPsw.text.isNotEmpty() && repeatPsw.text.isNotEmpty()) {
@@ -219,7 +222,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                         user.reauthenticate(credential)
                             .addOnCompleteListener {
                                 if (it.isSuccessful) {
-                                   popUpContrasena(view, requireActivity)
+                                    popUpContrasena(view, requireActivity)
                                     user.updatePassword(newPsw.text.toString())
                                         .addOnCompleteListener { task ->
                                             if (task.isSuccessful) {
@@ -230,34 +233,35 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                                         }
                                 } else {
                                     popUpError(view, requireActivity)
-                                                                    }
+                                }
                             }
                     }
                 }
             } else {
                 Toast.makeText(
                     _binding.root.context,
-                    "Porfavor no deje campos vacíos",
+                    R.string.camposVacios,
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
         builder.setNegativeButton(
-            "Cancelar"
+            R.string.btnNoCancelar
         ) { dialog, id ->
         }
         builder.show()
     }
+
     fun alertaBorrarCuenta(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
         val inflater2 = inflater.inflate(R.layout.alerta_borrar_cuenta, null)
         val editText = inflater2.findViewById<EditText>(R.id.pwsdUser)
-        builder.setTitle("Borrar cuenta")
-        builder.setMessage("¿Estás seguro de que quieres borrar la cuenta? Una vez borrada no podrás volver a acceder a ella")
+        builder.setTitle(R.string.borrar)
+        builder.setMessage(R.string.seguro)
         builder.setView(inflater2)
         builder.setPositiveButton(
-            "Borrar Cuenta"
+            R.string.borrar
         ) { dialog, id ->
             database = Firebase.database.reference
             auth = FirebaseAuth.getInstance()
@@ -269,7 +273,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
                     database.child("Users").child(auth.currentUser!!.uid).removeValue()
                         .addOnSuccessListener {
                             auth.currentUser!!.delete().addOnSuccessListener {
-                               popUpBorrarCuenta(view, requireActivity)
+                                popUpBorrarCuenta(view, requireActivity)
                                 _binding.root.findNavController().navigate(R.id.nav_home)
                             }
                         }
@@ -279,7 +283,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
             }
         }
         builder.setNegativeButton(
-            "Cancelar"
+            R.string.btnNoCancelar
         ) { dialog, id ->
         }
         builder.show()
@@ -302,6 +306,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         }
 
     }
+
     fun popUpCorreo(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
@@ -319,6 +324,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         }
 
     }
+
     fun popUpContrasena(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
@@ -336,6 +342,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         }
 
     }
+
     fun popUpTelefono(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
@@ -353,6 +360,7 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         }
 
     }
+
     fun popUpBorrarCuenta(view: View, requireActivity: FragmentActivity) {
         val builder = AlertDialog.Builder(view.context)
         val inflater = requireActivity.layoutInflater;
@@ -388,7 +396,6 @@ class DatosUsuarioViewModel(application: Application) : AndroidViewModel(applica
         boton.setOnClickListener {
             dialog.dismiss()
         }
-
 
 
     }

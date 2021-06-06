@@ -106,4 +106,26 @@
     <!-- String categorias -->
     <string name="categorias">Selecciona una categoría</string>
 
+    <!-- STRING NUEVAS ALERTAS -->
+    <string name="cambioExitoso">Canvi reeixit</string>
+    <string name="cambioTelefono">El teu telèfon s\'ha modificat correctament!</string>
+    <string name="cambioCorreo">El teu correu s\'ha modificat correctament!</string>
+    <string name="cambioNombre">El teu nom s\'ha modificat correctament!</string>
+    <string name="cambioContrasena">La teva contrasenya s\'ha modificat correctament!</string>
+    <string name="cambioBorrarCuenta">El teu compte s\'ha eliminat correctament!</string>
+    <string name="datoIncorrecto">Has introduït alguna dada incorrecte, intenta-ho de nou!</string>
+    <string name="datoMalInsertado">Alguna cosa no ha anat bé!</string>
+    <string name="btnConfirmarAlertas">Confirmar</string>
+
+    <!-- CAMBIAR DATOS USUARIO -->
+    <string name="recuerda">Recorda posar el teu nom i cognoms complets per poder canviar el teu nom a la vista dels altres.</string>
+    <string name="cambiarCorreoElectronico">Canviar el correu electrònic.</string>
+    <string name="numTelefono">Introdueix el teu número de telèfon.</string>
+    <string name="contraseña">Introdueix la teva contrasenya dues vegades per assegurar-nos que ets el propietari d\'aquest compte.</string>
+    <string name="cambiar">Canviar ara</string>
+    <string name="seguro">Estàs segur de que vols eliminar el compte? Un cop esborrada no podràs tornar a accedir-hi.</string>
+    <string name="camposVacios">Si us plau no deixi camps buits</string>
+    <string name="rellena">Si us plau omple tots els camps</string>
+    <string name="borrar">Esborrar compte</string>
+
 </resources>
