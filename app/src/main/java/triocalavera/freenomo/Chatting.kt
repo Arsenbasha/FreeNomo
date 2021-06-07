@@ -164,7 +164,7 @@ class Chatting : Fragment() {
       binding.Letra.text = nombredetino[0].toString().capitalize()
         binding.btnEnviar.setOnClickListener {
             databasemensajesenvio.push()
-                .setValue(Mensaje(nombredetino, binding.txtMensaje.text.toString(), "000"))
+                .setValue(Mensaje(minombre, binding.txtMensaje.text.toString(), "000"))
             databasemensajesrecibidos.push()
                 .setValue(Mensaje(minombre, binding.txtMensaje.text.toString(), "000"))
             binding.txtMensaje.text.clear()
