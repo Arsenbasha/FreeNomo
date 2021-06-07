@@ -7,21 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import triocalavera.freenomo.Model.Mensaje
 import triocalavera.freenomo.R
 import java.util.*
 
 
-class MensajeAdapter(var color: Int,var miNombre:String) :
+class MensajeAdapter(var color: Int, var miNombre: String) :
     RecyclerView.Adapter<MensajeAdapter.MensajeViewHolder>() {
     private val mensjeMutableList = mutableListOf<Mensaje>()
-
     inner class MensajeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        var logo = view.findViewById<ImageView>(R.id.imageViewChatReycrcle)
-        var userName = view.findViewById<TextView>(R.id.nombreUsuariochat)
-        var firstLetra = view.findViewById<TextView>(R.id.letraChatPost)
+        var logoIzquieda = view.findViewById<ImageView>(R.id.imgIzquierda)
+        var logoDerecha = view.findViewById<ImageView>(R.id.imgDerecha)
+        var cardViewUsuario = view.findViewById<CardView>(R.id.cardviewChattingright)
+        var cardViewDestion = view.findViewById<CardView>(R.id.cardviewChatleft)
+        var mensajeUsuario = view.findViewById<TextView>(R.id.mensajeDerecha)
+        var mensajeDestion = view.findViewById<TextView>(R.id.mensajeIzquierda)
+        var firstLetraUsuario = view.findViewById<TextView>(R.id.letraChatPostUsuario)
+        var firstLetraDestino = view.findViewById<TextView>(R.id.letraChatPostDestino)
     }
 
     fun addMensaje(m: Mensaje?) {
@@ -32,7 +37,7 @@ class MensajeAdapter(var color: Int,var miNombre:String) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MensajeViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.chat_recycler_view_item, parent, false)
+            .inflate(R.layout.item_derecha, parent, false)
         return MensajeViewHolder(view)
     }
 
@@ -46,17 +51,23 @@ class MensajeAdapter(var color: Int,var miNombre:String) :
         if (color == 0) {
             color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         }
-       holder.firstLetra.text = mensjeMutableList[position].nombre[0].toString().capitalize()
-        if (miNombre == mensjeMutableList[position].nombre){
-            holder.userName.setBackgroundColor(R.color.rojo)
 
-        }else{
+        if (miNombre != mensjeMutableList[position].nombre) {
+            holder.cardViewDestion.visibility=View.GONE
+            holder.mensajeDestion.visibility=View.GONE
+            holder.logoDerecha.setBackgroundColor(Color.argb(255, 0, 208, 0))
+            holder.firstLetraUsuario.text = miNombre[0].toString().capitalize()
+            Toast.makeText(holder.itemView.context,"${mensjeMutableList[position].nombre}",Toast.LENGTH_LONG).show()
+holder.mensajeUsuario.text=mensjeMutableList[position].mensaje
+
+        } else {
+            holder.cardViewUsuario.visibility = View.GONE
+            holder.mensajeUsuario.visibility = View.GONE
+            holder.logoIzquieda.setBackgroundColor(color)
+            holder.mensajeUsuario.text = mensjeMutableList[position].mensaje
+            holder.firstLetraDestino.text=mensjeMutableList[position].nombre[0].toString().capitalize()
 
         }
-        holder.userName.text = mensjeMutableList[position].mensaje
-        holder.userName.text = mensjeMutableList[position].mensaje
-        holder.logo.setBackgroundColor(color);
-
     }
 
 }

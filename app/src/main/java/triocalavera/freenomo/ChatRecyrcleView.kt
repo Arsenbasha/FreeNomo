@@ -53,7 +53,7 @@ class ChatRecyrcleView : Fragment() {
         } else {
             database =
                 FirebaseDatabase.getInstance().reference.child("chat").child(auth.currentUser!!.uid)
-lista.clear()
+            lista.clear()
             database.addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {

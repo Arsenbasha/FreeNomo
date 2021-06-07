@@ -26,16 +26,17 @@ class Chatting : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var Destinationuid: String
     private lateinit var binding: FragmentChattingBinding
-    private lateinit var nombredetino:String
+    private lateinit var nombredetino: String
     private lateinit var minombre: String
+    private lateinit var adapter: MensajeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_chatting, container, false)
-
         binding = FragmentChattingBinding.bind(view)
+
         return view
     }
 
@@ -46,7 +47,6 @@ class Chatting : Fragment() {
         auth = FirebaseAuth.getInstance()
         myUid = auth.currentUser!!.uid
         Destinationuid = args.uid
-
         database = FirebaseDatabase.getInstance().reference
         databasemensajesenvio = database.child("chat").child(myUid).child(Destinationuid)
             .child("mensajes")
@@ -56,13 +56,43 @@ class Chatting : Fragment() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     minombre = dataSnapshot.child("nombreCompleto").value.toString()
+                    adapter = MensajeAdapter(
+                        args.color, minombre
+                    )
+                    adapter.registerAdapterDataObserver(object : AdapterDataObserver() {
+                        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+                            super.onItemRangeInserted(positionStart, itemCount)
+                            setScrollbar()
+                        }
+                    })
+                    val recycleView = view!!.findViewById<RecyclerView>(R.id.rvMensajes)
+                    recycleView.adapter = adapter
+                    recycleView.layoutManager = LinearLayoutManager(context)
+                    databasemensajesenvio.addChildEventListener(object : ChildEventListener {
+                        override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
+                            val m: Mensaje? = dataSnapshot.getValue(Mensaje::class.java)
+                            if (::adapter.isInitialized)
+                                adapter.let { it.addMensaje(m) }
+                        }
+
+                        override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {}
+                        override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+                        override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
+                        override fun onCancelled(databaseError: DatabaseError) {}
+                    })
                 }
 
                 override fun onCancelled(error: DatabaseError) {}
             })
+        databasemensajesenvio = database.child("chat").child(myUid).child(Destinationuid)
+            .child("mensajes")
+        databasemensajesrecibidos = database.child("chat").child(Destinationuid).child(myUid)
+            .child("mensajes")
+
         primerChat()
 
     }
+
 
 
     private fun primerChat() {
@@ -87,7 +117,7 @@ class Chatting : Fragment() {
                                             val map: MutableMap<String, Any> = HashMap()
                                             map["nombre"] = minombre
                                             map["uidDestino"] = myUid
-                                            binding.nombre.text = nombredetino
+
                                             database.child("chat").child(Destinationuid)
                                                 .child(myUid)
                                                 .setValue(map)
@@ -106,13 +136,14 @@ class Chatting : Fragment() {
                         .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(dataSnapshot: DataSnapshot) {
                                 nombredetino = dataSnapshot.child("nombreCompleto").value.toString()
-                                binding.nombre.text = nombredetino
                             }
 
                             override fun onCancelled(error: DatabaseError) {}
                         })
                 }
+                binding.nombre.text = nombredetino
             }
+
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Getting Post failed, log a message
@@ -121,20 +152,13 @@ class Chatting : Fragment() {
         })
     }
 
-    private lateinit var adapter: MensajeAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         nombredetino = args.nombre
-        databasemensajesenvio = database.child("chat").child(myUid).child(Destinationuid)
-            .child("mensajes")
-        databasemensajesrecibidos = database.child("chat").child(Destinationuid).child(myUid)
-            .child("mensajes")
         val color = args.color
         binding.fotoPerfil.setBackgroundColor(color)
-    //    binding.Letra.text=nombredetino[0].toString().capitalize()
-        adapter = MensajeAdapter(
-            color, nombredetino
-        )
+        binding.nombre.text = nombredetino
+        binding.Letra.text = nombredetino[0].toString().capitalize()
         binding.btnEnviar.setOnClickListener {
             databasemensajesenvio.push()
                 .setValue(Mensaje(nombredetino, binding.txtMensaje.text.toString(), "000"))
@@ -142,28 +166,6 @@ class Chatting : Fragment() {
                 .setValue(Mensaje(minombre, binding.txtMensaje.text.toString(), "000"))
             binding.txtMensaje.text.clear()
         }
-        adapter.registerAdapterDataObserver(object : AdapterDataObserver() {
-            override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                super.onItemRangeInserted(positionStart, itemCount)
-                setScrollbar()
-            }
-        })
-
-        databasemensajesenvio.addChildEventListener(object : ChildEventListener {
-            override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
-                val m: Mensaje? = dataSnapshot.getValue(Mensaje::class.java)
-                adapter.addMensaje(m)
-            }
-
-            override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {}
-            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
-            override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
-            override fun onCancelled(databaseError: DatabaseError) {}
-        })
-
-        val recycleView = view.findViewById<RecyclerView>(R.id.rvMensajes)
-        recycleView.adapter = adapter
-        recycleView.layoutManager = LinearLayoutManager(context)
     }
 
     private fun setScrollbar() {
