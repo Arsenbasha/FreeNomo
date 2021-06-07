@@ -52,7 +52,7 @@ class MensajeAdapter(var color: Int, var miNombre: String) :
             color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         }
 
-        if (miNombre != mensjeMutableList[position].nombre) {
+        if (miNombre == mensjeMutableList[position].nombre) {
             holder.cardViewDestion.visibility=View.GONE
             holder.mensajeDestion.visibility=View.GONE
             holder.logoDerecha.setBackgroundColor(Color.argb(255, 0, 208, 0))
