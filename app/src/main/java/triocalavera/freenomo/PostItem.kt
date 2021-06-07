@@ -18,8 +18,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import triocalavera.freenomo.Model.Post
 import triocalavera.freenomo.databinding.PostItemFragmentBinding
 
@@ -57,13 +56,26 @@ class PostItem : Fragment() {
         binding.precioPostItem.text = post.precio
         binding.horaPublicadaPostItem.text = post.fecha
         binding.btnPostAbrirChat.setOnClickListener {
+
             if (id.isNullOrEmpty()) {
                 Toast.makeText(context,"Debes iniciar session para hablar con el ofertante",Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.login)
             } else {
                 if (id != post.userName) {
-                    val action = PostItemDirections.actionPostItemToChatting(post.userName, 0, "")
-                    Navigation.findNavController(it).navigate(action)
+
+                    database.child("Users").child(post.userName)
+
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                              val  nombredetino = dataSnapshot.child("nombreCompleto").value.toString()
+                                val action = PostItemDirections.actionPostItemToChatting(post.userName, 0, nombredetino)
+                                Navigation.findNavController(it).navigate(action)
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                TODO("Not yet implemented")
+                            }
+                        })
                 } else {
                     Toast.makeText(
                         context,

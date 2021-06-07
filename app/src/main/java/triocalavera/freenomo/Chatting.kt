@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -157,8 +158,10 @@ class Chatting : Fragment() {
         nombredetino = args.nombre
         val color = args.color
         binding.fotoPerfil.setBackgroundColor(color)
+        Toast.makeText(context,"$nombredetino",Toast.LENGTH_SHORT).show()
         binding.nombre.text = nombredetino
-        binding.Letra.text = nombredetino[0].toString().capitalize()
+        binding.Letra.text
+      binding.Letra.text = nombredetino[0].toString().capitalize()
         binding.btnEnviar.setOnClickListener {
             databasemensajesenvio.push()
                 .setValue(Mensaje(nombredetino, binding.txtMensaje.text.toString(), "000"))
